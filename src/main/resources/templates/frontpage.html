@@ -22,7 +22,7 @@
                     </div>
             </section>
             <section>
-                <form method="POST" th:action="/frontpage">
+                <form method="POST" th:action="@{/frontpage}">
                     <p>Event name: <br /><input type="text" name="name"/></p>
                     <p>Event text: <br /><textarea name="text"></textarea></p>
                     <input type="submit" value="Submit"/>
