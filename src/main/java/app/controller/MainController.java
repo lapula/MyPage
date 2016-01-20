@@ -10,6 +10,6 @@ public class MainController {
     
     @RequestMapping("/")
     public String run() {
-        return "Hello World!";
+        return "redirect:/frontpage";
     }
 }
