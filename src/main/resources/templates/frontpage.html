@@ -16,8 +16,8 @@
             <section>
                     <h3>Story Entries</h3>
                     <div th:each="story : ${stories}">
-                        <div>
-                            ${stories.name}
+                        <div th:text="${story.name}">
+                            failure
                         </div>
                     </div>
             </section>
