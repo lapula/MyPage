@@ -1,10 +1,10 @@
 package app.controller;
 
+
 import app.domain.StoryEntry;
 import app.repository.StoryEntryRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +20,21 @@ public class FrontpageController {
     
     @Autowired
     private StoryEntryRepository ser;
+
+    @Autowired
+    private HttpServletRequest request;
+    
     
     @RequestMapping(method = RequestMethod.GET)
     public String getFrontpage(Model model) {
         
         model.addAttribute("stories", ser.findAll());
+        System.out.println(request.getRequestURL().toString());
         
         return "frontpage";
     }
     
+      
     @RequestMapping(method = RequestMethod.POST)
     public String add(@ModelAttribute StoryEntry se) {
         if (se.getName() != null && se.getName() != "") {
