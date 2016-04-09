@@ -10,6 +10,7 @@ import app.domain.Player;
 import app.domain.StoryEntry;
 import app.repository.GameRepository;
 import app.repository.PlayerRepository;
+import app.repository.StoryEntryRepository;
 import java.util.List;
 import java.util.Random;
 import javax.servlet.http.Cookie;
@@ -28,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Sara ja Laur
  */
 @Controller
-@RequestMapping(value="/game/*")
+@RequestMapping(value="/clean")
 public class LobbyController {
     
     
@@ -44,67 +45,22 @@ public class LobbyController {
     @Autowired
     private PlayerRepository players;
     
+    @Autowired
+    StoryEntryRepository stories;
+    
+    
+   
     
     @RequestMapping(method = RequestMethod.GET)
-    public String getGame(Model model) {
-        
-        
-        String url = request.getRequestURL().toString();
-        int i = url.length() - 1;
-        String name = "";
-        while (url.charAt(i) != '/') {
-            name += url.charAt(i);
-            i--;
-        }
-        name = new StringBuilder(name).reverse().toString();
-        
-        Player p = new Player();
-        p.setName("P " + new Random().nextInt(300000));
-        
-        response.addCookie(new Cookie("Player", "" + p.getId()));
-        
-        players.save(p);
-        
-        Game g = null;
-        
-        if (games.findByName(name) == null) {
-            g = new Game();
-            g.addPlayer(p);
-            g.setName(name);
-        } else {
-            g = games.findByName(name);
-            g.addPlayer(p);
-        }
-
-        games.save(g);
-        
-        
-        System.out.println(g.getName());
-        System.out.println(g.getPlayers().size());
-        System.out.println(p.getName());
-        
-        return "game";
-    }
-    
-    @RequestMapping(method = RequestMethod.GET, value = "/one")
     public String getFrontpage(Model model) {
         
-        Cookie c = request.getCookies()[0];
-        System.out.println(c.getName());
+        stories.deleteAll();
+        players.deleteAll();
+        games.deleteAll();
         
         return "frontpage";
     }
     
       
-    @RequestMapping(method = RequestMethod.POST)
-    public String add(@ModelAttribute StoryEntry se) {
-        
-        return "redirect:/frontpage";
-    }
     
-    @RequestMapping(method = RequestMethod.DELETE)
-    public String delete(@RequestParam long storyId) {
-        
-        return "redirect:/frontpage";
-    }
 }

@@ -9,6 +9,6 @@ public class MainController {
     
     @RequestMapping("*")
     public String run() {
-        return "redirect:/frontpage";
+        return "redirect:/welcome";
     }
 }
