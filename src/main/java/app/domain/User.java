@@ -20,9 +20,12 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 @Entity
 public class User extends AbstractPersistable<Long> {
     
-    @Column(unique = true)
+
+    @Column(name="username", unique = true)
     private String username;
+    @Column(name="password")
     private String password;
+    @Column(name="salt")
     private String salt;
     
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

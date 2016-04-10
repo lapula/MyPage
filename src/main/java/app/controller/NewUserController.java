@@ -31,7 +31,7 @@ public class NewUserController {
     @RequestMapping(method = RequestMethod.GET)
     public String getNewUserPage(Model model) {
         
-        //model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("user", new User());
         
         return "uusiKayttaja";

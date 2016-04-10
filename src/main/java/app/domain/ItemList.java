@@ -7,6 +7,7 @@ package app.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -22,10 +23,12 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class ItemList extends AbstractPersistable<Long> {
     
     @OneToMany(mappedBy = "itemList", fetch = FetchType.LAZY)
+    @Column(name="items")
     private List<Item> items;
 
     @ManyToOne
-    @JoinColumn
+    @Column(name="user")
+    @JoinColumn(name="id")
     private User user;
     
     public List<Item> getItems() {

@@ -5,6 +5,7 @@
  */
 package app.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,11 +18,14 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class Item extends AbstractPersistable<Long> {
     
+    @Column(name="name")
     private String name;
+    @Column(name="count")
     private int count;
     
     @ManyToOne
-    @JoinColumn
+    @Column(name="itemList")
+    @JoinColumn(name="id")
     private ItemList itemList;
 
     public ItemList getItemList() {
