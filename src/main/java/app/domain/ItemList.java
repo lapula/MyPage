@@ -30,13 +30,6 @@ public class ItemList implements Serializable {
     @GeneratedValue 
     private Long id;
     
-    
-
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
-    
-    
 
     public Long getId() {
         return id;
