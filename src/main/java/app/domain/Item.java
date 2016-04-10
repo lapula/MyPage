@@ -5,8 +5,11 @@
  */
 package app.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -16,7 +19,12 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author Sara ja Laur
  */
 @Entity
-public class Item extends AbstractPersistable<Long> {
+public class Item implements Serializable {
+
+    @Id
+    @Column(name="item_id")
+    @GeneratedValue 
+    private Long id;
     
     @Column(name="name")
     private String name;
@@ -24,10 +32,9 @@ public class Item extends AbstractPersistable<Long> {
     private int count;
     
     @ManyToOne
-    @Column(name="itemList")
-    @JoinColumn(name="id")
     private ItemList itemList;
 
+    
     public ItemList getItemList() {
         return itemList;
     }
@@ -50,6 +57,14 @@ public class Item extends AbstractPersistable<Long> {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     

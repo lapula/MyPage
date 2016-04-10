@@ -5,10 +5,13 @@
  */
 package app.domain;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -18,7 +21,12 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  * @author Sara ja Laur
  */
 @Entity
-public class User extends AbstractPersistable<Long> {
+public class User implements Serializable {
+
+    @Id
+    @Column(name = "user_id")
+    @GeneratedValue 
+    private Long id;
     
 
     @Column(name="username", unique = true)
@@ -62,6 +70,14 @@ public class User extends AbstractPersistable<Long> {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
 }

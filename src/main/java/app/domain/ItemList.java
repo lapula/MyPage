@@ -5,11 +5,14 @@
  */
 package app.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,15 +23,17 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author Sara ja Laur
  */
 @Entity
-public class ItemList extends AbstractPersistable<Long> {
+public class ItemList implements Serializable {
+
+    @Id
+    @Column(name = "itemList_id")
+    @GeneratedValue 
+    private Long id;
     
     @OneToMany(mappedBy = "itemList", fetch = FetchType.LAZY)
-    @Column(name="items")
     private List<Item> items;
 
     @ManyToOne
-    @Column(name="user")
-    @JoinColumn(name="id")
     private User user;
     
     public List<Item> getItems() {
@@ -41,6 +46,14 @@ public class ItemList extends AbstractPersistable<Long> {
     
     public void addItem(Item item) {
         items.add(item);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     
