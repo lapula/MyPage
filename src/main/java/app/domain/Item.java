@@ -31,18 +31,9 @@ public class Item implements Serializable {
     @Column(name="count")
     private int count;
     
-    @ManyToOne
-    @JoinColumn(name="itemList_id")
-    private ItemList itemList;
 
     
-    public ItemList getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(ItemList itemList) {
-        this.itemList = itemList;
-    }
+    
 
     public String getName() {
         return name;

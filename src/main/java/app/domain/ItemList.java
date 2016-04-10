@@ -30,24 +30,13 @@ public class ItemList implements Serializable {
     @GeneratedValue 
     private Long id;
     
-    @OneToMany(mappedBy = "itemList", fetch = FetchType.LAZY)
-    private List<Item> items;
+    
 
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
     
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
     
-    public void addItem(Item item) {
-        items.add(item);
-    }
 
     public Long getId() {
         return id;

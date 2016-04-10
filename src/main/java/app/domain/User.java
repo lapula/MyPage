@@ -36,16 +36,9 @@ public class User implements Serializable {
     @Column(name="salt")
     private String salt;
     
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<ItemList> items;
+    
 
-    public List<ItemList> getItems() {
-        return items;
-    }
-
-    public void setItems(List<ItemList> items) {
-        this.items = items;
-    }
+    
 
     public String getUsername() {
         return username;
