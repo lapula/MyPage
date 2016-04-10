@@ -34,6 +34,7 @@ public class ItemList implements Serializable {
     private List<Item> items;
 
     @ManyToOne
+    @JoinColumn(name="user_id")
     private User user;
     
     public List<Item> getItems() {

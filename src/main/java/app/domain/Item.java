@@ -32,6 +32,7 @@ public class Item implements Serializable {
     private int count;
     
     @ManyToOne
+    @JoinColumn(name="itemList_id")
     private ItemList itemList;
 
     
