@@ -5,14 +5,13 @@
  */
 package app.repository;
 
-import app.domain.StoryEntry;
-import java.io.Serializable;
+import app.domain.ItemList;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Sara ja Laur
  */
-public interface StoryEntryRepository extends JpaRepository<StoryEntry, Long>{
+public interface ItemListRepository extends JpaRepository<ItemList, Long>{
     
 }

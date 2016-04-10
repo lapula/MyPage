@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Nyyttarit</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+
+        <main>
+            <p>New User page!</p>
+            
+            <table th:each="user : ${users}">
+                <tr>
+                    <td th:text="${user.username}">404</td>
+                </tr>
+                <tr>
+                    <td th:text="${user.password}">404</td>
+                </tr>
+            </table>
+            
+            <form action="#" th:action="@{/uusiKayttaja}" th:object="${user}" method="POST">
+
+                <table>
+                    <tr>
+                        <td>Käyttäjänimi: </td>
+                        <td><input type="text" th:field="*{username}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Salasana </td>
+                        <td><input type="text" th:field="*{password}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Rekisiteröidy!" /></td>
+                    </tr>
+                    
+                </table>
+            </form>
+            
+        </main>
+
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>

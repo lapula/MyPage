@@ -5,17 +5,16 @@
  */
 package app.repository;
 
-
-import app.domain.Game;
-import java.io.Serializable;
+import app.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Sara ja Laur
  */
-public interface GameRepository extends JpaRepository<Game, Long>{
-    
-    public Game findByName(String name);
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
     
 }
+

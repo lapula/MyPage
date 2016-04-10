@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Nyyttarit</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+
+        <main>
+            <h2>Hello <span th:text="${user}">there</span>!</h2>
+
+            <form method="POST" th:action="@{/authenticate}">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="text" name="password" placeholder="Password" />
+                <input type="submit" value="Kirjaudu sisään!" />
+            </form>
+
+            <p><a href="/uusiKayttaja">Uusi käyttäjä</a>
+                <a href="/tavarat">ItemList</a>
+                <a href="/logout">Kirjaudu Ulos</a>
+            </p>
+
+        </main>
+
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>
