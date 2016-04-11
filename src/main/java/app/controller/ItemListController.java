@@ -55,14 +55,11 @@ public class ItemListController {
         if (bindingResult.hasErrors()) {
             return "nyyttarit";
         }
-        System.out.println(itemList.getId());
-        System.out.println(itemList.getName());
-        System.out.println(itemList.getPerson().getUsername());
+        
         
         
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
-        
         List<ItemList> personItemList = person.getItems();
         
         if (personItemList == null) {
@@ -70,11 +67,17 @@ public class ItemListController {
         }
         
         itemList.setPerson(person);
+        itemList = itemListRepository.save(itemList);
+        
+        System.out.println(itemList.getId());
+        System.out.println(itemList.getName());
+        System.out.println(itemList.getPerson());
+        
         personItemList.add(itemList);
         person.setItems(personItemList);
         personRepository.save(person);
         
-        itemListRepository.save(itemList);
+        
         
         System.out.println(itemList.getPerson().getUsername());
         
