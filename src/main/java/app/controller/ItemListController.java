@@ -56,22 +56,14 @@ public class ItemListController {
             return "nyyttarit";
         }
         
-        
-        
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
-        List<ItemList> personItemList = person.getItems();
-        
-        if (personItemList == null) {
-            personItemList = new ArrayList<>();
-        }
         
         itemList.setPerson(person);
-        itemList = itemListRepository.save(itemList);
-        
         System.out.println(itemList.getId());
-        System.out.println(itemList.getName());
-        System.out.println(itemList.getPerson());
+        
+        itemListRepository.save(itemList);
+        
         
         return "redirect:/nyyttarit";
     }

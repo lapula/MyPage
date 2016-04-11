@@ -5,6 +5,7 @@
  */
 package app.controller;
 
+import app.domain.ItemList;
 import app.domain.Person;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.PersonRepository;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,7 +48,7 @@ public class NewUserController {
         if (bindingResult.hasErrors()) {
             return "uusiKayttaja";
         }
-        
+        user.setItems(new ArrayList<ItemList>());
         userRepository.save(user);
         
         return "redirect:/tervetuloa";
