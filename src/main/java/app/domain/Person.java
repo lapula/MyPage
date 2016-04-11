@@ -7,6 +7,7 @@ package app.domain;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,7 +38,7 @@ public class Person implements Serializable {
     private String salt;
     
 
-    @OneToMany(mappedBy = "person")
+     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private List<ItemList> items;
     
     public String getUsername() {
