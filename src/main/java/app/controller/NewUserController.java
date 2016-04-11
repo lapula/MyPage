@@ -5,8 +5,7 @@
  */
 package app.controller;
 
-import app.domain.User;
-import app.repository.UserRepository;
+import app.domain.Person;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import app.repository.PersonRepository;
 
 /**
  *
@@ -26,19 +26,19 @@ public class NewUserController {
     
     
     @Autowired
-    private UserRepository userRepository;
+    private PersonRepository userRepository;
     
     @RequestMapping(method = RequestMethod.GET)
     public String getNewUserPage(Model model) {
         
         model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new Person());
         
         return "uusiKayttaja";
     }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String createNewUser(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+    public String createNewUser(@Valid @ModelAttribute Person user, BindingResult bindingResult) {
         
         if (bindingResult.hasErrors()) {
             return "uusiKayttaja";

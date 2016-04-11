@@ -5,16 +5,16 @@
  */
 package app.repository;
 
-import app.domain.User;
+import app.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Sara ja Laur
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface PersonRepository extends JpaRepository<Person, Long> {
 
-    User findByUsername(String username);
+    Person findByUsername(String username);
     
 }
 

@@ -21,11 +21,11 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  * @author Sara ja Laur
  */
 @Entity
-public class User implements Serializable {
+public class Person implements Serializable {
 
     @Id
     @Column(name = "user_id")
-    @GeneratedValue 
+    @GeneratedValue
     private Long id;
     
 
@@ -36,10 +36,8 @@ public class User implements Serializable {
     @Column(name="salt")
     private String salt;
     
-    
 
     
-
     public String getUsername() {
         return username;
     }

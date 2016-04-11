@@ -5,8 +5,7 @@
  */
 package app.auth;
 
-import app.domain.User;
-import app.repository.UserRepository;
+import app.domain.Person;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
+import app.repository.PersonRepository;
 
 /**
  *
@@ -27,14 +27,14 @@ import org.springframework.stereotype.Component;
 public class JpaAuthProvider implements AuthenticationProvider {
     
     @Autowired
-    private UserRepository userRepository;
+    private PersonRepository userRepository;
     
     @Override
     public Authentication authenticate(Authentication a) throws AuthenticationException {
         String username = a.getPrincipal().toString();
         String password = a.getCredentials().toString();
 
-        User user = userRepository.findByUsername(username);
+        Person user = userRepository.findByUsername(username);
 
         if (user == null) {
             throw new AuthenticationException("Unable to authenticate user " + username) {
