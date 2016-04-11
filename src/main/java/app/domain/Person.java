@@ -37,6 +37,8 @@ public class Person implements Serializable {
     private String salt;
     
 
+    @OneToMany
+    private List<ItemList> items;
     
     public String getUsername() {
         return username;

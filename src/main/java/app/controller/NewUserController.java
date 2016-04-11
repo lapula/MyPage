@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.PersonRepository;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -32,7 +34,7 @@ public class NewUserController {
     public String getNewUserPage(Model model) {
         
         model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("user", new Person());
+        model.addAttribute("person", new Person());
         
         return "uusiKayttaja";
     }
@@ -46,7 +48,14 @@ public class NewUserController {
         
         userRepository.save(user);
         
-        
         return "redirect:/tervetuloa";
+    }
+    
+    @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+    public String deleteUser(@PathVariable Long id ) {
+        
+        userRepository.delete(id);
+        
+        return "redirect:/logout";
     }
 }
