@@ -73,14 +73,6 @@ public class ItemListController {
         System.out.println(itemList.getName());
         System.out.println(itemList.getPerson());
         
-        personItemList.add(itemList);
-        person.setItems(personItemList);
-        personRepository.save(person);
-        
-        
-        
-        System.out.println(itemList.getPerson().getUsername());
-        
         return "redirect:/nyyttarit";
     }
     
