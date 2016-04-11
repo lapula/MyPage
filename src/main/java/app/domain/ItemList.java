@@ -25,6 +25,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class ItemList implements Serializable {
 
+    @ManyToOne
+    private Person person;
+
     @Id
     @Column(name = "itemList_id")
     @GeneratedValue 
@@ -37,6 +40,14 @@ public class ItemList implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
     
     

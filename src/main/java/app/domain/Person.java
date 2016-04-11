@@ -37,7 +37,7 @@ public class Person implements Serializable {
     private String salt;
     
 
-    @OneToMany
+    @OneToMany(mappedBy = "person")
     private List<ItemList> items;
     
     public String getUsername() {
@@ -72,5 +72,14 @@ public class Person implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public List<ItemList> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemList> items) {
+        this.items = items;
+    }
+    
     
 }
