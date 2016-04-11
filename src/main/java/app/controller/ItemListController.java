@@ -72,7 +72,7 @@ public class ItemListController {
         itemList.setPerson(person);
         personItemList.add(itemList);
         person.setItems(personItemList);
-        personRepository.save(itemList);
+        personRepository.save(person);
         
         itemListRepository.save(itemList);
         
