@@ -66,9 +66,7 @@ public class ItemListController {
         itemList.setPerson(person);
         itemListRepository.save(itemList);
         
-        personItemList.add(itemList);
-        person.setItems(personItemList);
-        personRepository.save(person);
+        
         
         return "redirect:/nyyttarit";
     }
