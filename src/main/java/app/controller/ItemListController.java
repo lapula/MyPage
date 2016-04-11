@@ -56,17 +56,27 @@ public class ItemListController {
             return "nyyttarit";
         }
         System.out.println(itemList.getId());
+        System.out.println(itemList.getName());
+        System.out.println(itemList.getPerson().getUsername());
+        
+        
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
+        
         List<ItemList> personItemList = person.getItems();
         
         if (personItemList == null) {
             personItemList = new ArrayList<>();
         }
+        
         itemList.setPerson(person);
+        personItemList.add(itemList);
+        person.setItems(personItemList);
+        personRepository.save(itemList);
+        
         itemListRepository.save(itemList);
         
-        
+        System.out.println(itemList.getPerson().getUsername());
         
         return "redirect:/nyyttarit";
     }
