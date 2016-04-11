@@ -55,6 +55,7 @@ public class ItemListController {
         if (bindingResult.hasErrors()) {
             return "nyyttarit";
         }
+        System.out.println(itemList.getId());
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
         List<ItemList> personItemList = person.getItems();
@@ -63,9 +64,10 @@ public class ItemListController {
             personItemList = new ArrayList<>();
         }
         itemList.setPerson(person);
-        personItemList.add(itemList);
+        itemListRepository.save(itemList);
         
-        itemListRepository.save(personItemList);
+        personItemList.add(itemList);
+        person.setItems(personItemList);
         personRepository.save(person);
         
         return "redirect:/nyyttarit";
