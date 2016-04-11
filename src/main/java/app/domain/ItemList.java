@@ -26,7 +26,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class ItemList implements Serializable {
 
-    @ManyToOne(optional = false, targetEntity=Person.class)
+    @ManyToOne
     private Person person;
 
     @Id
