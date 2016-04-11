@@ -33,6 +33,9 @@ public class ItemList implements Serializable {
     @GeneratedValue 
     private Long id;
     
+    @Column(name = "name")
+    private String name;
+    
 
     public Long getId() {
         return id;
@@ -48,6 +51,14 @@ public class ItemList implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     

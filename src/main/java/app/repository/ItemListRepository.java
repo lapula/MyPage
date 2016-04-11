@@ -6,6 +6,7 @@
 package app.repository;
 
 import app.domain.ItemList;
+import app.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
