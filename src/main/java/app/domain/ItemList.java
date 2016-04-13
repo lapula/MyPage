@@ -24,16 +24,11 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author Sara ja Laur
  */
 @Entity
-public class ItemList implements Serializable {
+public class ItemList extends AbstractBaseEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Person person;
 
-    @Id
-    @Column(name = "itemList_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
     @Column(name = "name")
     private String name;
     
@@ -48,13 +43,7 @@ public class ItemList implements Serializable {
         this.items = items;
     }
     
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
 
     public Person getPerson() {
         return person;

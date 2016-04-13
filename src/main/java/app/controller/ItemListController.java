@@ -41,9 +41,6 @@ public class ItemListController {
     private ItemRepository itemRepository;
 
     
-    
-    
-    
     @RequestMapping(method = RequestMethod.POST)
     public String createNewUser(@Valid @ModelAttribute ItemList itemList, BindingResult bindingResult) {
         
@@ -58,6 +55,7 @@ public class ItemListController {
         itemList.setPerson(person);
         
         itemList = itemListRepository.save(itemList);
+        System.out.println(itemList.getId());
         person.getItems().add(itemList);
         personRepository.save(person);
         
@@ -65,15 +63,15 @@ public class ItemListController {
     }
     
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    public String deleteItemList(@PathVariable Long id ) {
+    public String deleteItemList(@PathVariable String id ) {
         
-        ItemList itemList = itemListRepository.findOne(id);
+        ItemList itemList = itemListRepository.findById(id);
         
         for (Item item : itemList.getItems()) {
             itemRepository.delete(item.getId());
         }
         
-        itemListRepository.delete(id);
+        itemListRepository.delete(itemList);
         
         return "redirect:/nyyttarit";
     }

@@ -30,30 +30,29 @@ public class ItemController {
     
     
     @Autowired
-    ItemRepository itemRepository;
+    private ItemRepository itemRepository;
     
     @Autowired
-    ItemListRepository itemListRepository;
+    private ItemListRepository itemListRepository;
 
     
+    @ModelAttribute
+    private Item getItem() {
+        return new Item();
+    }
     
     
     @RequestMapping(value="/lisaa", method = RequestMethod.POST)
-    public String createNewUser(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable Long id) {
+    public String createNewUser(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable String id) {
         
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasFieldErrors("name") || bindingResult.hasFieldErrors("amount")) {
+            System.out.println(bindingResult.getAllErrors().get(0));
             return "tavarat";
         }
-        ItemList itemList = itemListRepository.findOne(id);
+        ItemList itemList = itemListRepository.findById(id);
         item.setItemList(itemList);
         item.setId(null);
-        System.out.println("ITEM ID " + item.getId());
         item = itemRepository.save(item);
-        System.out.println("ITEM ID NOW" + item.getId());
-        System.out.println("ITEM NAME " + item.getName());
-        
-        
-        
         
         itemList.getItems().add(item);
         itemListRepository.save(itemList);
@@ -62,7 +61,7 @@ public class ItemController {
     }
     
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
-    public String deleteItemList(@PathVariable Long id, @PathVariable Long itemId ) {
+    public String deleteItemList(@PathVariable String id, @PathVariable Long itemId ) {
         
         itemRepository.delete(itemId);
         

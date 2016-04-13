@@ -14,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Sara ja Laur
  */
 public interface ItemListRepository extends JpaRepository<ItemList, Long>{
-    
+    ItemList findById(String id);
 }
