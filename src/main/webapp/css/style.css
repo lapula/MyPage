@@ -6,7 +6,7 @@ html {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
     background-color: burlywood;
     position: absolute;
     width: 99%;
@@ -16,7 +16,6 @@ html {
 .headerNavBar li {
     float:left;
     height: 100%;
-    position: static;
 }
 
 .headerNavBar li a {
@@ -32,14 +31,14 @@ html {
     background-color: beige;
 }
 
-.headerNavBar li input[type=text] {
+.headerNavBar li input[type=text], .headerNavBar li input[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
 .headerNavBar li input[type=submit] {
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -47,6 +46,10 @@ html {
     border-radius: 4px;
     cursor: pointer;
 }
+
+
+
+
 
 #headerTitle:hover {
     background-color: beige;
@@ -84,3 +87,30 @@ main {
     margin-left: 14%;
 }
 
+@media (max-width:1200px) {
+    .headerNavBar li input[type=text], .headerNavBar li input[type=password] {
+        box-sizing: border-box;
+        width: 120px;
+        padding: 14px 20px;
+        height: 26px;
+    }
+
+    .headerNavBar li input[type=submit] {
+        width: 125px;
+        height: 26px;
+        text-align: center;
+    }
+
+    #headerTitle {
+        font-size: 24px;
+        text-decoration: none;
+        color: brown;
+    }
+    header {
+        font-size: 14px;
+    }
+
+    .headerNavBar li a {
+        padding: 14px 8px;
+    }
+}
