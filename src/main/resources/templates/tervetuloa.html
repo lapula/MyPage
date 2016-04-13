@@ -11,7 +11,6 @@
         </div>
 
         <main>
-            <div id="content">
                 <h2>Hello <span th:if="${loggedUser != null}" th:text="${loggedUser.username}">there</span>!</h2>
                 
                 <p>
@@ -27,12 +26,6 @@ Sed dignissim, lacus non tincidunt rhoncus, lacus ligula blandit ex, aliquet pos
 
 
                 </p>
-                <form method="POST" th:action="@{/authenticate}">
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="text" name="password" placeholder="Password" />
-                    <input type="submit" value="Kirjaudu sisään!" />
-                </form>
-            </div>
         </main>
 
         <div th:replace="fragments/footer :: footer"></div>

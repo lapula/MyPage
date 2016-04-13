@@ -30,6 +30,22 @@ html {
     background-color: beige;
 }
 
+.headerNavBar li input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.headerNavBar li input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 #headerTitle:hover {
     background-color: beige;
 }
@@ -45,11 +61,20 @@ html {
     float: right;
 }
 
+.login {
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.headerNavBar .login {
+    float:right;
+}
+
 header {
     font-size: 17px;
 }
 
-#content {
+main {
     position: absolute;
     margin-top: 100px;
     width: 70%;
