@@ -33,14 +33,7 @@ public class NewUserController {
     @Autowired
     private PersonRepository userRepository;
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String getNewUserPage(Model model) {
-        
-        model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("person", new Person());
-        
-        return "uusiKayttaja";
-    }
+    
     
     @RequestMapping(method = RequestMethod.POST)
     public String createNewUser(@Valid @ModelAttribute Person user, BindingResult bindingResult) {

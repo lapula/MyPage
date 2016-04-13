@@ -36,21 +36,7 @@ public class ItemController {
     ItemListRepository itemListRepository;
 
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String getItems(Model model, @PathVariable Long id) {
-        
-        ItemList itemList = itemListRepository.findOne(id);
-        
-        System.out.println(itemList.getItems().size());
-        System.out.println(itemRepository.findAll().size());
-        
-        model.addAttribute("items", itemList.getItems());
-        model.addAttribute("food", new Item());
-        model.addAttribute("itemListId", id);
-        
-        
-        return "tavarat";
-    }
+    
     
     @RequestMapping(value="/lisaa", method = RequestMethod.POST)
     public String createNewUser(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable Long id) {
@@ -78,7 +64,7 @@ public class ItemController {
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable Long id, @PathVariable Long itemId ) {
         
-        itemRepository.delete(id);
+        itemRepository.delete(itemId);
         
         return "redirect:/nyyttarit/" + id;
     }

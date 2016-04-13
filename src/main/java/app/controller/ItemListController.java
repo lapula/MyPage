@@ -42,16 +42,7 @@ public class ItemListController {
 
     
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String getItems(Model model) {
-        
-        String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Person person = personRepository.findByUsername(personName);
-        model.addAttribute("itemList", new ItemList());
-        model.addAttribute("itemLists", person.getItems());
-        
-        return "nyyttarit";
-    }
+    
     
     @RequestMapping(method = RequestMethod.POST)
     public String createNewUser(@Valid @ModelAttribute ItemList itemList, BindingResult bindingResult) {
