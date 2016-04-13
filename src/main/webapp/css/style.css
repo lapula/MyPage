@@ -10,11 +10,13 @@ html {
     background-color: burlywood;
     position: absolute;
     width: 99%;
+    max-height: 75px;
 }
 
 .headerNavBar li {
     float:left;
     height: 100%;
+    position: static;
 }
 
 .headerNavBar li a {
