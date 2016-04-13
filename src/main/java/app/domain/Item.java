@@ -6,7 +6,10 @@
 package app.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +36,13 @@ public class Item implements Serializable {
     
     @Column(name = "amount")
     private Integer amount;
+    
+    @Column(name = "reserved")
+    private Integer reserved;
+    
+    @ElementCollection
+    @Column(name = "reservedBy")
+    private Map<String, Integer> reservedBy;
 
     public Long getId() {
         return id;
@@ -65,6 +75,21 @@ public class Item implements Serializable {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
-    
-    
+
+    public Integer getReserved() {
+        return reserved;
+    }
+
+    public void setReserved(Integer reserved) {
+        this.reserved = reserved;
+    }
+
+    public Map<String, Integer> getReservedBy() {
+        return reservedBy;
+    }
+
+    public void setReservedBy(Map<String, Integer> reservedBy) {
+        this.reservedBy = reservedBy;
+    }
+
 }

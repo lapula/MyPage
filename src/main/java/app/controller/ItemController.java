@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.ItemRepository;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -43,7 +46,7 @@ public class ItemController {
     
     
     @RequestMapping(value="/lisaa", method = RequestMethod.POST)
-    public String createNewUser(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable String id) {
+    public String createNewItem(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable String id) {
         
         if (bindingResult.hasFieldErrors("name") || bindingResult.hasFieldErrors("amount")) {
             System.out.println(bindingResult.getAllErrors().get(0));
@@ -51,11 +54,25 @@ public class ItemController {
         }
         ItemList itemList = itemListRepository.findById(id);
         item.setItemList(itemList);
+        item.setReserved(0);
+        item.setReservedBy(new HashMap<>());
         item.setId(null);
         item = itemRepository.save(item);
         
         itemList.getItems().add(item);
         itemListRepository.save(itemList);
+
+        return "redirect:/nyyttarit/" + id;
+    }
+    
+    @RequestMapping(value="/varaa/{itemId}", method = RequestMethod.POST)
+    public String makeReservations(@PathVariable String id, @PathVariable Long itemId, 
+            @RequestParam("reserveAmount") Integer reserveAmount,
+            @RequestParam("reserverName") String reserverName) {
+        
+        Item item = itemRepository.findOne(itemId);
+        item.getReservedBy().put(reserverName, reserveAmount);
+        itemRepository.save(item);
 
         return "redirect:/nyyttarit/" + id;
     }

@@ -8,19 +8,25 @@
         <div th:replace="fragments/header :: header"></div>
 
         <main>
-            <table th:each="item : ${items}">
-                <tr>
-                    <td><span th:text="${item.name}"></span>, </td>
-                    <td><span th:text="${item.amount}"></span> kpl.</td>
-                </tr>
+            <ul th:each="item : ${items}">
+                <li>
+                    <span th:text="${item.name}"></span>, <span th:text="${item.amount}"></span> kpl.
+                    <form th:action="@{/nyyttarit/{id}/varaa/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST">
+                        <input type="text" name="reserverName" />
+                        <input type="number" name="reserveAmount" />
+                        <input type="submit" value="Varaa"/></form>
+                    <ul th:each="reserve : ${item.reservedBy}">
+                        <li>
+                            Varannut: <span th:text="${reserve.key}"></span> Määrä: <span th:text="${reserve.value}"></span>
+                        </li>
+                    </ul>
+                </li>
                 <div th:if="${loggedUser != null}">
-                    <tr th:if="${loggedUser.id == itemListCreatorId}">
-                        <td>
-                            <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
-                        </td>
-                    </tr>
+                    <li th:if="${loggedUser.id == itemListCreatorId}">
+                        <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
+                    </li>
                 </div>
-            </table>
+            </ul>
 
             <div th:if="${loggedUser != null}">
                 <form th:if="${loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">

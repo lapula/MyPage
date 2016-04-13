@@ -12,7 +12,7 @@
 
         <main>
             <h2>Hello <span th:if="${loggedUser != null}" th:text="${loggedUser.username}">there</span>!</h2>
-
+            
             <form method="POST" th:action="@{/authenticate}">
                 <input type="text" name="username" placeholder="Username" />
                 <input type="text" name="password" placeholder="Password" />
