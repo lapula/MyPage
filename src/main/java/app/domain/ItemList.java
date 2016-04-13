@@ -32,6 +32,9 @@ public class ItemList extends AbstractBaseEntity {
     @Column(name = "name")
     private String name;
     
+    @Column(name = "description")
+    private String description;
+    
     @OneToMany(mappedBy = "itemList")
     private List<Item> items;
 
@@ -42,8 +45,6 @@ public class ItemList extends AbstractBaseEntity {
     public void setItems(List<Item> items) {
         this.items = items;
     }
-    
-    
 
     public Person getPerson() {
         return person;
@@ -59,6 +60,14 @@ public class ItemList extends AbstractBaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     
