@@ -1,11 +1,59 @@
+html {
+    height: 100%;
+}
 
-
-ul {
+.headerNavBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: burlywood;
+    position: absolute;
+    width: 99%;
 }
 
-h2 {
-    background-color: blueviolet;
+.headerNavBar li {
+    float:left;
+    height: 100%;
 }
+
+.headerNavBar li a {
+    display: block;
+    color: brown;
+    text-align: center;
+    padding: 28px 16px;
+    text-decoration: none;
+    float:left;
+}
+
+.headerNavBar li a:hover {
+    background-color: beige;
+}
+
+#headerTitle:hover {
+    background-color: beige;
+}
+
+#headerTitle {
+    font-size: 41px;
+    text-decoration: none;
+    color: brown;
+    padding: 14px 16px;
+    float: left;
+}
+#logout {
+    float: right;
+}
+
+header {
+    font-size: 17px;
+}
+
+#content {
+    position: absolute;
+    margin-top: 100px;
+    width: 70%;
+    background-color: bisque;
+    margin-left: 14%;
+}
+

@@ -3,23 +3,36 @@
     <head lang="en">
         <meta charset="UTF-8" />
         <title>Nyyttarit</title>
-        <link rel="stylesheet" href="../../css/style.css" th:href="@{/css/style.css}" type='text/css'/>
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" type="text/css" media="all"  href="../../css/style.css" th:href="@{css/style.css}" />
     </head>
     <body>
-        <div >
+        <div>
             <div th:replace="fragments/header :: header"></div>
         </div>
-        
 
         <main>
-            <h2>Hello <span th:if="${loggedUser != null}" th:text="${loggedUser.username}">there</span>!</h2>
-            
-            <form method="POST" th:action="@{/authenticate}">
-                <input type="text" name="username" placeholder="Username" />
-                <input type="text" name="password" placeholder="Password" />
-                <input type="submit" value="Kirjaudu sisään!" />
-            </form>
+            <div id="content">
+                <h2>Hello <span th:if="${loggedUser != null}" th:text="${loggedUser.username}">there</span>!</h2>
+                
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lacus mollis, tincidunt massa sit amet, feugiat dolor. Duis convallis tellus et lacus faucibus, in euismod urna condimentum. Aenean mollis felis eget sem vehicula consequat. Praesent eleifend justo purus, ac semper libero bibendum sit amet. Pellentesque eleifend, quam sit amet cursus consectetur, nulla erat lacinia ante, nec ullamcorper lorem ante mollis urna. Duis varius eros scelerisque lacinia semper. Sed eu sem sed sapien pharetra scelerisque lacinia eget tortor. Quisque maximus neque at hendrerit laoreet.
+
+Suspendisse blandit sapien quis lectus pulvinar, sed convallis dolor pellentesque. Sed sem urna, faucibus eget tincidunt dapibus, placerat ac sapien. In nunc ante, scelerisque ac tortor nec, fermentum ullamcorper eros. Phasellus volutpat eget nisi in accumsan. Sed quam dui, facilisis ut condimentum at, lobortis finibus dolor. Nulla placerat sed libero nec malesuada. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin ultrices efficitur nisi, a pulvinar enim sodales in.
+
+Aenean a consectetur massa. Mauris vitae augue in est vehicula accumsan quis sit amet nunc. Pellentesque quis felis et dolor dignissim consectetur. Aliquam erat volutpat. Integer quis mauris et lorem mollis sodales. Suspendisse potenti. Maecenas quis finibus risus, in gravida dui. Aliquam et volutpat dui. Fusce nulla arcu, ullamcorper non fringilla sit amet, hendrerit at lorem. Curabitur lacus massa, venenatis vitae venenatis a, lobortis nec arcu. Aliquam non ex arcu. Praesent turpis urna, eleifend vel orci quis, fringilla tincidunt sem. Quisque convallis arcu turpis, eget sollicitudin orci auctor nec. Proin ut erat dolor. Aliquam in urna vehicula ex vehicula rutrum ac quis magna.
+
+Ut molestie convallis augue nec fermentum. Integer accumsan, nibh sed dapibus maximus, sem ante hendrerit est, at lobortis nunc nisl sit amet mauris. In fringilla metus quam, et ornare dui dictum eu. Phasellus lacinia, ex in scelerisque maximus, nunc urna accumsan diam, in faucibus dui massa in eros. Donec bibendum erat vel turpis eleifend sodales. Aenean augue massa, pulvinar id sem non, pretium molestie mauris. Nulla facilisi. Praesent tristique eget neque vitae lacinia. Aliquam porta nec lorem a porta. Morbi scelerisque, libero ac vulputate ultrices, velit elit eleifend risus, nec sagittis nisi turpis sed ipsum. Praesent non cursus felis. Nulla congue ipsum sit amet orci molestie suscipit a quis nisl.
+
+Sed dignissim, lacus non tincidunt rhoncus, lacus ligula blandit ex, aliquet posuere nisi libero id magna. Donec sit amet lectus facilisis, tristique massa vitae, rutrum felis. Phasellus blandit eleifend aliquam. Vivamus vel est pulvinar, aliquam magna id, feugiat nisi. Maecenas ut justo nisi. Duis volutpat pulvinar commodo. In sagittis nisi quis quam rhoncus, quis convallis lorem maximus. Nam tincidunt sed odio accumsan luctus. Nunc vestibulum nibh quis nisl feugiat condimentum. Phasellus condimentum nunc vitae sem dictum aliquam. Sed porta nunc mi, at ullamcorper diam euismod elementum. Integer dui eros, auctor vel dui eu, mollis dignissim dui.
+
+
+                </p>
+                <form method="POST" th:action="@{/authenticate}">
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="text" name="password" placeholder="Password" />
+                    <input type="submit" value="Kirjaudu sisään!" />
+                </form>
+            </div>
         </main>
 
         <div th:replace="fragments/footer :: footer"></div>
