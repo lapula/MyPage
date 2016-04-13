@@ -26,7 +26,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class ItemList implements Serializable {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Person person;
 
     @Id
@@ -37,7 +37,17 @@ public class ItemList implements Serializable {
     @Column(name = "name")
     private String name;
     
+    @OneToMany(mappedBy = "itemList")
+    private List<Item> items;
 
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+    
     public Long getId() {
         return id;
     }

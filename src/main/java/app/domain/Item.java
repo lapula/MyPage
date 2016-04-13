@@ -9,10 +9,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  *
@@ -21,19 +20,35 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class Item implements Serializable {
 
+    @ManyToOne
+    private ItemList itemList;
+
     @Id
-    @Column(name="item_id")
-    @GeneratedValue 
+    @Column(name = "item_id")
+    @GeneratedValue
     private Long id;
     
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="count")
-    private int count;
     
+    @Column(name = "amount")
+    private Integer amount;
 
-    
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ItemList getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(ItemList itemList) {
+        this.itemList = itemList;
+    }
 
     public String getName() {
         return name;
@@ -43,20 +58,12 @@ public class Item implements Serializable {
         this.name = name;
     }
 
-    public int getCount() {
-        return count;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
     
     

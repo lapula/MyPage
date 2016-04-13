@@ -6,12 +6,14 @@
 package app.repository;
 
 import app.domain.Item;
+import app.domain.ItemList;
+import app.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Sara ja Laur
  */
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long>{
     
 }

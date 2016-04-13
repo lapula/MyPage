@@ -8,11 +8,40 @@
         <div th:replace="fragments/header :: header"></div>
 
         <main>
-            <p>Items!</p>
-
+            <table th:each="item : ${items}">
+                <tr>
+                    <td th:text="${item.id}">404</td>
+                </tr>
+                <tr>
+                    <td th:text="${item.name}">404</td>
+                </tr>
+                <tr>
+                    <td th:text="${item.amount}">404</td>
+                </tr>
+                <tr>
+                    <td>
+                        <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
+                    </td>
+                </tr>
+            </table>
             
+            <form action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${food}" method="POST">
 
-            
+                <table>
+                    <tr>
+                        <td>Nimi: </td>
+                        <td><input type="text" th:field="*{name}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Määrä: </td>
+                        <td><input type="text" th:field="*{amount}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Lisää tavara!" /></td>
+                    </tr>
+                    
+                </table>
+            </form>
         </main>
 
         <div th:replace="fragments/footer :: footer"></div>

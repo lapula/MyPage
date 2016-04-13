@@ -9,9 +9,9 @@ import app.domain.Item;
 import app.domain.ItemList;
 import app.domain.Person;
 import app.repository.ItemListRepository;
+import app.repository.ItemRepository;
 import app.repository.PersonRepository;
 import java.util.ArrayList;
-import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,12 +37,16 @@ public class ItemListController {
     @Autowired
     private PersonRepository personRepository;
     
+    @Autowired
+    private ItemRepository itemRepository;
+
+    
+    
     @RequestMapping(method = RequestMethod.GET)
     public String getItems(Model model) {
         
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
-        
         model.addAttribute("itemList", new ItemList());
         model.addAttribute("itemLists", person.getItems());
         
@@ -59,17 +63,24 @@ public class ItemListController {
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Person person = personRepository.findByUsername(personName);
         
+        itemList.setItems(new ArrayList<>());
         itemList.setPerson(person);
-        System.out.println(itemList.getId());
         
-        itemListRepository.save(itemList);
-        
+        itemList = itemListRepository.save(itemList);
+        person.getItems().add(itemList);
+        personRepository.save(person);
         
         return "redirect:/nyyttarit";
     }
     
-    @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable Long id ) {
+        
+        ItemList itemList = itemListRepository.findOne(id);
+        
+        for (Item item : itemList.getItems()) {
+            itemRepository.delete(item.getId());
+        }
         
         itemListRepository.delete(id);
         

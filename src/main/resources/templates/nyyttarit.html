@@ -10,11 +10,13 @@
         <main>
             <table th:each="itemList : ${itemLists}">
                 <tr>
-                    <td th:text="${itemList.name}">404</td>
+                    <td>
+                        <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <form th:action="@{/nyyttarit/{id}/delete(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
+                        <form th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
                     </td>
                 </tr>
             </table>
