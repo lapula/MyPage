@@ -3,6 +3,8 @@
     <head lang="en">
         <meta charset="UTF-8" />
         <title>Nyyttarit</title>
+        <link rel="stylesheet" href="../../css/style.css" th:href="@{/css/style.css}" type='text/css'/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
     </head>
     <body>
         <div >
@@ -18,12 +20,6 @@
                 <input type="text" name="password" placeholder="Password" />
                 <input type="submit" value="Kirjaudu sisään!" />
             </form>
-
-            <p><a href="/uusiKayttaja">Uusi käyttäjä</a>
-                <a href="/nyyttarit">ItemList</a>
-                <a href="/logout">Kirjaudu Ulos</a>
-            </p>
-
         </main>
 
         <div th:replace="fragments/footer :: footer"></div>
