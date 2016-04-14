@@ -13,16 +13,5 @@
         <li th:if="${loggedUser != null}" id="logout">
             <a href="/logout">Kirjaudu Ulos</a>
         </li>
-        <form th:if="${loggedUser == null}" method="POST" th:action="@{/authenticate}">
-        <li class = "login">
-            <input type="submit" value="Kirjaudu sisään!" />
-        </li>
-        <li class = "login">
-            <input type="password" name="password" placeholder="Password" />
-        </li>
-        <li class = "login">
-            <input type="text" name="username" placeholder="Username" />
-        </li>
-        </form>
     </ul>
 </header>
