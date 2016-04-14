@@ -6,47 +6,55 @@
         <link rel="stylesheet" type="text/css" media="all"  href="../../css/style.css" th:href="@{css/style.css}" />
     </head>
     <body>
-        <div th:replace="fragments/header :: header"></div>
+        <div>
+            <div th:replace="fragments/header :: header"></div>
+        </div>
 
-        <main>
-            <table th:each="itemList : ${itemLists}">
-                <tr>
-                    <td>
-                        <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span th:text="${itemList.description}"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
-                    </td>
-                </tr>
-            </table>
+        <div id="wrapper">
+            <div class="outer">
+                <div class="middle">
+                    <div class="inner">
+                        <table th:each="itemList : ${itemLists}">
+                            <tr>
+                                <td>
+                                    <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span th:text="${itemList.description}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
+                                </td>
+                            </tr>
+                        </table>
 
-            <form id="nyyttariLomake" action="#" th:action="@{/nyyttarit}" th:object="${itemList}" method="POST">
+                        <form id="nyyttariLomake" action="#" th:action="@{/nyyttarit}" th:object="${itemList}" method="POST">
 
-                <table>
-                    <tr>
-                        <td>Nimi: </td>
-                        <td><input type="text" th:field="*{name}" /></td>
-                    </tr>
-                    <tr>
-                        <td>Kuvaus: </td>
-                        <td>
-                            <textarea form="nyyttariLomake" th:field="*{description}" rows="4" cols="50"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Lisää lista!" /></td>
-                    </tr>
+                            <table>
+                                <tr>
+                                    <td>Nimi: </td>
+                                    <td><input type="text" th:field="*{name}" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Kuvaus: </td>
+                                    <td>
+                                        <textarea form="nyyttariLomake" th:field="*{description}" rows="4" cols="50"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="Lisää lista!" /></td>
+                                </tr>
 
-                </table>
-            </form>
-        </main>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div th:replace="fragments/footer :: footer"></div>
     </body>

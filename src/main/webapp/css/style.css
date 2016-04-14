@@ -5,7 +5,6 @@ html, body {
 
 #wrapper {
     background-image: url('/images/background.jpg');
-
     min-height: 100%;
     margin: 0px;
     background-repeat: no-repeat;
@@ -122,9 +121,19 @@ header {
     width: 40%;
 }
 
+.innerWhenLogged {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 40em;
+    background-color: blue;
+    padding: 2em;
+}
+.innerWhenLogged ul {
+    padding: 0px;
+}
+
 @media (max-width:1200px) {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');
-        position: static;
     }
 }
