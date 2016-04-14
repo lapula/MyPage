@@ -5,6 +5,7 @@ html {
 body {
     background-image: url('/images/background.jpg');
     margin: 0px;
+    
 }
 
 .headerNavBar {
@@ -12,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     position: fixed;
-    background-color: #3D9970;
+    background-color: #4CAF50;
     left:0px;
     top:0px;
     width: 100%;
@@ -50,21 +51,53 @@ header {
 }
 
 #welcomeContent {
-    
+
     width: 100%;
-    background-color: #3D9970;
+    background-color: #4CAF50;
     -webkit-box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
     box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
-        
+
 }
 
 #welcomeLogin {
     margin: 28em auto;
-    width: 50%;
-    background-color: #3D9970;
+    width: 30%;
+
 
 }
+
+.login {
+    list-style-type: none;
+}
+
+.login input[type=text], .login input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+}
+
+.login input[type=submit] {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+}
+
 
 @media (max-width:1200px) {
 
