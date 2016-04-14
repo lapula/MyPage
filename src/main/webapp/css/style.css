@@ -5,6 +5,7 @@ html, body {
 
 #wrapper {
     background-image: url('/images/background.jpg');
+
     min-height: 100%;
     margin: 0px;
     background-repeat: no-repeat;
@@ -122,5 +123,8 @@ header {
 }
 
 @media (max-width:1200px) {
-    
+    #wrapper {
+        background-image: url('/images/backgroundMobile.jpg');
+        position: static;
+    }
 }
