@@ -10,20 +10,27 @@
             <div th:replace="fragments/header :: header"></div>
         </div>
 
+        <div id="wrapper">
+            <div class="outer">
+                <div class="middle">
+                    <div class="inner">
+                        <form th:if="${loggedUser == null}" method="POST" th:action="@{/authenticate}">
+                            <li class = "login">
+                                <input type="text" name="username" placeholder="Username" />
+                            </li>
+                            <li class = "login">
+                                <input type="password" name="password" placeholder="Password" />
+                            </li>
+                            <li class = "login">
+                                <input type="submit" value="Kirjaudu sisään!" />
+                            </li>
+                        </form>
 
-        <div id="welcomeLogin">
-            <form th:if="${loggedUser == null}" method="POST" th:action="@{/authenticate}">
-                <li class = "login">
-                    <input type="text" name="username" placeholder="Username" />
-                </li>
-                <li class = "login">
-                    <input type="password" name="password" placeholder="Password" />
-                </li>
-                <li class = "login">
-                    <input type="submit" value="Kirjaudu sisään!" />
-                </li>
-            </form>
+                    </div>
+                </div>
+            </div>
         </div>
+
 
         <div id ="welcomeContent">
 

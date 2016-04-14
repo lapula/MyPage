@@ -3,9 +3,17 @@ html {
 }
 
 body {
-    background-image: url('/images/background.jpg');
-    margin: 0px;
     
+    margin: 0px;
+    height: 100%;
+    top:0px;
+    left: 0px;
+}
+
+#wrapper {
+    background-image: url('/images/background.jpg');
+    min-height: 100%;
+    margin: 0px;
 }
 
 .headerNavBar {
@@ -34,15 +42,6 @@ body {
 }
 
 #logout {
-    float: right;
-}
-
-.login {
-    margin-right: 10px;
-    margin-top: 8px;
-}
-
-.headerNavBar .login {
     float:right;
 }
 
@@ -60,12 +59,18 @@ header {
 
 }
 
-#welcomeLogin {
-    margin: 28em auto;
-    width: 30%;
-
-
+#welcomeContent p, #welcomeContent h2{
+    margin-top: 0px;
 }
+
+#welcomeLogin {
+    
+    position: relative;
+    left: 50%;
+    margin-left: -320px;
+}
+
+
 
 .login {
     list-style-type: none;
@@ -101,4 +106,27 @@ header {
 
 @media (max-width:1200px) {
 
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bottom {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 40%;
 }
