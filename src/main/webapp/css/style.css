@@ -1,19 +1,13 @@
-html {
-    height: 100%;
-}
-
-body {
-
-    margin: 0px;
-    height: 100%;
-    top:0px;
-    left: 0px;
+html, body {
+    height: 100vh;
+    margin:0px;
 }
 
 #wrapper {
     background-image: url('/images/background.jpg');
     min-height: 100%;
     margin: 0px;
+    background-repeat: no-repeat;
 }
 
 .headerNavBar {
@@ -128,7 +122,5 @@ header {
 }
 
 @media (max-width:1200px) {
-    .headerNavBar {
-        position: absolute;
-    }
+    
 }
