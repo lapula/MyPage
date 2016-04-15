@@ -9,6 +9,10 @@ html, body {
     min-height: 100%;
     margin: 0px;
     background-attachment:fixed;
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
 }
 
 .headerNavBar {
