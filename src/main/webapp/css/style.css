@@ -5,10 +5,10 @@ html, body {
 
 #wrapper {
     background-image: url('/images/background.jpg');
-    background: url('/images/background.jpg') no-repeat center center fixed;
+    background: url('/images/background.jpg') no-repeat center center;
     min-height: 100%;
     margin: 0px;
-    background-attachment:fixed;
+
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
