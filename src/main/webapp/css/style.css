@@ -5,9 +5,9 @@ html, body {
 
 #wrapper {
     background-image: url('/images/background.jpg');
+    background: url('/images/background.jpg') no-repeat center center fixed;
     min-height: 100%;
     margin: 0px;
-    background-repeat: no-repeat;
     background-attachment:fixed;
 }
 
