@@ -10,58 +10,47 @@
             <div th:replace="fragments/header :: header"></div>
         </div>
 
-        <div id="wrapper" th:if="${loggedUser == null}">
-            <div class="outer">
-                <div class="middle">
-                    <div class="inner">
-                        <form method="POST" th:action="@{/authenticate}">
-                            <ul>
-                                <li class = "login">
-                                    <input type="text" name="username" placeholder="Username" />
-                                </li>
-                                <li class = "login">
-                                    <input type="password" name="password" placeholder="Password" />
-                                </li>
-                                <li class = "login">
-                                    <input type="submit" value="Kirjaudu sisään!" />
-                                </li>
-                            </ul>
-                        </form>
+        <div id ="wrapper">
+            <div class="center-div" th:if="${loggedUser == null}">
+                <form method="POST" th:action="@{/authenticate}">
+                    <ul>
+                        <li class = "login">
+                            <input type="text" name="username" placeholder="Username" />
+                        </li>
+                        <li class = "login">
+                            <input type="password" name="password" placeholder="Password" />
+                        </li>
+                        <li class = "login">
+                            <input type="submit" value="Kirjaudu sisään!" />
+                        </li>
+                    </ul>
+                </form>
 
-                    </div>
-                </div>
             </div>
         </div>
 
-        <div id="wrapper" th:if="${loggedUser != null}">
-            <div class="outer">
-                
-                <div class="middle">
-                    <div class="innerWhenLogged">
-                        <form method="POST" th:action="@{/authenticate}">
-                            <ul>
-                                <li class = "login">
-                                    <input type="text" name="username" th:value="${loggedUser.username}" />
-                                </li>
-                                <li class = "login">
-                                    <input type="password" name="password" placeholder="Password" />
-                                </li>
-                                <li class = "login">
-                                    <input type="submit" value="Muokkaa tietoja!" />
-                                </li>
-                            </ul>
-                        </form>
-                        <form method="POST" th:action="@{/authenticate}">
-                            <ul>
-                                <li class = "login">
-                                    <input type="submit" value="Poista käyttäjä!" />
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-                
-            </div>
+        <div class="center-div" th:if="${loggedUser != null}">
+
+            <form method="POST" th:action="@{/authenticate}">
+                <ul>
+                    <li class = "login">
+                        <input type="text" name="username" th:value="${loggedUser.username}" />
+                    </li>
+                    <li class = "login">
+                        <input type="password" name="password" placeholder="Password" />
+                    </li>
+                    <li class = "login">
+                        <input type="submit" value="Muokkaa tietoja!" />
+                    </li>
+                </ul>
+            </form>
+            <form method="POST" th:action="@{/authenticate}">
+                <ul>
+                    <li class = "login">
+                        <input type="submit" value="Poista käyttäjä!" />
+                    </li>
+                </ul>
+            </form>
         </div>
 
 
