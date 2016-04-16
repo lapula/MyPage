@@ -49,14 +49,14 @@
                             <li class = "login">
                                 <input type="password" name="password" placeholder="Password" />
                             </li>
-                            <li class = "login">
-                                <input type="submit" value="Muokkaa tietoja!" />
+                            <li class = "editUser">
+                                <input type="submit" value="Muokkaa tietoja! (ei toimi vielä)" />
                             </li>
                         </ul>
                     </form>
-                    <form method="POST" th:action="@{/authenticate}">
+                    <form th:action="@{/uusiKayttaja/{id}/delete(id=${loggedUser.id})}" method="POST">
                         <ul>
-                            <li class = "login">
+                            <li class = "deleteUser">
                                 <input type="submit" value="Poista käyttäjä!" />
                             </li>
                         </ul>

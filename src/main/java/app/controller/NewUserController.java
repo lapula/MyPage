@@ -41,7 +41,7 @@ public class NewUserController {
         if (bindingResult.hasErrors()) {
             return "uusiKayttaja";
         }
-        user.setItems(new ArrayList<ItemList>());
+        user.setItems(new ArrayList<>());
         userRepository.save(user);
         
         return "redirect:/tervetuloa";

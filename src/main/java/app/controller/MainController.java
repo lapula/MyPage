@@ -69,6 +69,15 @@ public class MainController {
 
         return "uusiKayttaja";
     }
+    
+    @RequestMapping(value = "/stats")
+    public String getStatsPage(Model model) {
+
+        model.addAttribute("users", personRepository.findAll());
+        model.addAttribute("person", new Person());
+
+        return "stats";
+    }
 
     @RequestMapping(value = "tervetuloa", method = RequestMethod.GET)
     public String welcome(Model model) {

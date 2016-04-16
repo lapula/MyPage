@@ -72,7 +72,7 @@ header {
 
 
 
-.login {
+.login, .editUser, .deleteUser {
     list-style-type: none;
 }
 
@@ -89,9 +89,8 @@ header {
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
 }
 
-.login input[type=submit] {
+.login input[type=submit], .editUser input[type=submit], .deleteUser input[type=submit] {
     width: 100%;
-    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -101,6 +100,18 @@ header {
     -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+}
+
+.login input[type=submit] {
+    background-color: blue;
+}
+
+.editUser input[type=submit] {
+    background-color: orange;
+}
+
+.deleteUser input[type=submit] {
+    background-color: red;
 }
 
 .center-div {
@@ -120,6 +131,7 @@ header {
 
 .center-div ul{
     padding:0px;
+    margin: 0px;
 }
 
 .upper-div {
