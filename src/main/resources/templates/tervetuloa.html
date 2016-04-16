@@ -15,8 +15,7 @@
         <div id ="wrapper">
 
             <div class="upper-div" th:if="${loggedUser == null}">
-                
-                <span>Huge text!</span>
+                <span>Tervetuloa!</span>
             </div>
 
             <div class="center-div" th:if="${loggedUser == null}">
@@ -34,6 +33,10 @@
                     </ul>
                 </form>
 
+            </div>
+            
+            <div class="upper-div" th:if="${loggedUser != null}">
+                <span>Tervetuloa <span th:text="{loggedUser.username}"></span>!</span>
             </div>
 
             <div class="center-div" th:if="${loggedUser != null}">
