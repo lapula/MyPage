@@ -3,6 +3,7 @@ html, body {
     margin:0px;
 }
 
+
 #wrapper {
     background-image: url('/images/background.jpg');
     background: url('/images/background.jpg') no-repeat center center;
@@ -150,4 +151,8 @@ header {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');
     }
+}
+
+footer {
+    background-color: #4CAF50;
 }
