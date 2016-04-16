@@ -8,7 +8,13 @@ console.log("ready!");
             var bg = jQuery("#wrapper");
             jQuery(window).resize("resizeBackground");
             function resizeBackground() {
-                bg.height(jQuery(window).height() + 70);
+                bg.height(jQuery(window).height() + 80);
+            }
+            resizeBackground();
+            var bg = jQuery(".center-div");
+            jQuery(window).resize("resizeBackground");
+            function resizeBackground() {
+                bg.height(jQuery(window).height() + 80);
             }
             resizeBackground();
         }

@@ -36,7 +36,7 @@
             </div>
             
             <div class="upper-div" th:if="${loggedUser != null}">
-                <span>Tervetuloa <span th:text="{loggedUser.username}"></span>!</span>
+                <span>Tervetuloa <span th:text="${loggedUser.username}"></span>!</span>
             </div>
 
             <div class="center-div" th:if="${loggedUser != null}">
