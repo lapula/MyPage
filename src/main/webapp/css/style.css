@@ -131,6 +131,7 @@ header {
     max-height: 25%;
 }
 
+
 .notLoggedForm {
     padding: 1em;
 }
@@ -168,6 +169,12 @@ header {
 @media (max-width:1200px) {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');
+    }
+
+    .upper-div {
+        
+        max-height: 70%;
+        
     }
 }
 

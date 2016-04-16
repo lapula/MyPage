@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin:0px;
+    background-image: url('/images/backgroundCompressed.jpg');
+    background: url('/images/background.jpg');
+}
+
+
+#wrapper {
+    
+    height: 100%;
+    margin: 0px;
+}
+
+.headerNavBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: #4CAF50;
+    left:0px;
+    top:0px;
+    width: 100%;
+    -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    z-index: 9;
+}
+
+.headerNavBar li {
+    float:left;
+    padding: 14px 16px;
+}
+
+.headerNavBar li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+#logout {
+    float:right;
+}
+
+
+.center-List {
+    position: absolute;
+    margin: 15em auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 40%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 5px;
+    color:white;
+}
+
+.upper-div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80%;
+    font-size: 4vw;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    text-shadow: 2px 2px 10px black;
+}
+
+
+@media (max-width:1200px) {
+    #wrapper {
+        background-image: url('/images/backgroundCompressedMobile.jpg');
+    }
+
+    .upper-div {
+        
+        max-height: 70%;
+        
+    }
+}
+
+footer {
+    background-color: #4CAF50;
+}
