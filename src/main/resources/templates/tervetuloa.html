@@ -15,7 +15,7 @@
         <div id ="wrapper">
 
             <div class="upper-div" th:if="${loggedUser == null}">
-                <span>Tervetuloa!</span>
+                <span th:text="${newUserCreated != null} ? ${newUserCreated} : 'Tervetuloa!'">Tervetuloa!</span>
             </div>
 
             <div class="center-div" th:if="${loggedUser == null}">
@@ -40,9 +40,12 @@
             </div>
 
             <div class="center-div" th:if="${loggedUser != null}">
-                <div class="loggedForm" >
+                <div class="loggedForm">
                     <form method="POST" th:action="@{/authenticate}">
                         <ul>
+                            <li>
+                                <span>Käyttäjätiedot: </span>
+                            </li>
                             <li class = "login">
                                 <input type="text" name="username" th:value="${loggedUser.username}" />
                             </li>

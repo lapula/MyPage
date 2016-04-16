@@ -2,13 +2,13 @@
 
     <ul class="headerNavBar">
         <li>
-            <a id="headerTitle" href="/tervetuloa">Nyytärit v0.1.2</a>
+            <a id="headerTitle" href="/tervetuloa">Etusivulle</a>
         </li>
-        <li>
+        <li th:if="${loggedUser == null}">
             <a href="/uusiKayttaja">Uusi käyttäjä</a>
         </li>
-        <li>
-            <a href="/nyyttarit">ItemList</a>
+        <li th:if="${loggedUser != null}">
+            <a href="/nyyttarit">Omat Tapahtumat</a>
         </li>
         <li th:if="${loggedUser != null}" id="logout">
             <a href="/logout">Kirjaudu Ulos</a>

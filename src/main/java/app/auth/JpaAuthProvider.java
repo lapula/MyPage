@@ -33,7 +33,7 @@ public class JpaAuthProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication a) throws AuthenticationException {
         String username = a.getPrincipal().toString();
         String password = a.getCredentials().toString();
-
+        
         Person user = userRepository.findByUsername(username);
 
         if (user == null) {

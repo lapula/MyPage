@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -36,14 +37,16 @@ public class NewUserController {
     
     
     @RequestMapping(method = RequestMethod.POST)
-    public String createNewUser(@Valid @ModelAttribute Person user, BindingResult bindingResult) {
+    public String createNewUser(@Valid @ModelAttribute Person user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         
         if (bindingResult.hasErrors()) {
+            System.out.println(user.getPassword());
+            System.out.println(bindingResult.getAllErrors().get(0));
             return "uusiKayttaja";
         }
         user.setItems(new ArrayList<>());
         userRepository.save(user);
-        
+        redirectAttributes.addFlashAttribute("newUserCreated", "Kirjaudu sisään!");
         return "redirect:/tervetuloa";
     }
     

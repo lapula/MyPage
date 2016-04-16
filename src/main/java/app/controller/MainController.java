@@ -81,7 +81,6 @@ public class MainController {
 
     @RequestMapping(value = "tervetuloa", method = RequestMethod.GET)
     public String welcome(Model model) {
-
         return "tervetuloa";
     }
 

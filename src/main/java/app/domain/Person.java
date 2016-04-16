@@ -13,6 +13,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
@@ -28,11 +30,16 @@ public class Person implements Serializable {
     @GeneratedValue
     private Long id;
     
-
+    
     @Column(name="username", unique = true)
+    @NotBlank
+    @Length(min = 2, max = 32)
     private String username;
+    
     @Column(name="password")
+    @NotBlank
     private String password;
+    
     @Column(name="salt")
     private String salt;
     

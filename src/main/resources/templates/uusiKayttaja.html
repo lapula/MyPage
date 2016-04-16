@@ -12,18 +12,21 @@
 
         <div id ="wrapper">
 
-            <div class="upper-div" th:if="${loggedUser == null}">
-                <span>Tässä voit rekisteröityä.</span>
-            </div>
+
 
             <div class="center-div" th:if="${loggedUser == null}">
                 <form class="loggedForm"  action="#" th:action="@{/uusiKayttaja}" th:object="${person}" method="POST">
                     <ul>
+                        <li>
+                            <span>Rekisteröi uusi käyttäjä: </span>
+                        </li>
                         <li class = "login">
                             <input type="text" th:field="*{username}" placeholder="Username" />
+                            <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Virheviesti</span>
                         </li>
                         <li class = "login">
                             <input type="password" th:field="*{password}" placeholder="Password" />
+                            <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Virheviesti</span>
                         </li>
                         <li class = "login">
                             <input type="submit" value="Reksiteröidy!" />
