@@ -87,6 +87,8 @@ header {
     -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
+    font-size: 2vh;
+    text-align: center;
 }
 
 .login input[type=submit], .editUser input[type=submit], .deleteUser input[type=submit] {
@@ -150,7 +152,7 @@ header {
     left: 0;
     width: 100%;
     max-height: 80%;
-    font-size: 8vw;
+    font-size: 12vh;
     color: white;
     white-space: nowrap;
     text-align: center;
@@ -210,7 +212,7 @@ header {
     }
 
     .center-div {
-        margin: 10em auto;
+        margin: 20em auto;
         top: 0;
         right: 0;
         bottom: 0;
@@ -220,7 +222,7 @@ header {
     }
 
     header {
-        font-size: 4.5vw;
+        font-size: 3.5vw;
     }
 
     .login input[type=text], .login input[type=password] {
