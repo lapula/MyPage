@@ -45,7 +45,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true);
         
         http.csrf().disable();
-
     }
 
     /*@Configuration
