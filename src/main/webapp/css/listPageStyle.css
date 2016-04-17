@@ -56,6 +56,10 @@ html, body {
     color:white;
 }
 
+.center-List table, .center-List form table {
+    width: 100%;
+}
+
 .upper-div {
     position: absolute;
     margin: auto;
