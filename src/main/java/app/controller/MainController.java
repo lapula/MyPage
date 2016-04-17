@@ -81,6 +81,7 @@ public class MainController {
 
     @RequestMapping(value = "tervetuloa", method = RequestMethod.GET)
     public String welcome(Model model) {
+        model.addAttribute("person", new Person());
         return "tervetuloa";
     }
 

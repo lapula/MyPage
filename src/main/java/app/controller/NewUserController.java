@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.PersonRepository;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -27,19 +28,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Sara ja Laur
  */
 @Controller
-@RequestMapping(value="/uusiKayttaja")
+@RequestMapping(value = "/uusiKayttaja")
 public class NewUserController {
-    
-    
+
     @Autowired
     private PersonRepository userRepository;
-    
-    
-    
+
     @RequestMapping(method = RequestMethod.POST)
     public String createNewUser(Model model, @Valid @ModelAttribute Person user, BindingResult bindingResult,
             RedirectAttributes redirectAttributes) {
-        
+
         if (bindingResult.hasErrors()) {
             return "uusiKayttaja";
         } else if (userRepository.findByUsername(user.getUsername()) != null) {
@@ -52,8 +50,7 @@ public class NewUserController {
             model.addAttribute("errorMessage", "Salasanan kuuluu olla vähintään 4 merkkiä pitkä!");
             return "uusiKayttaja";
         }
-        
-        
+
         user.setPasswordAgain("0000");
         user.setItems(new ArrayList<>());
         user.setSaltedPassword();
@@ -61,12 +58,70 @@ public class NewUserController {
         redirectAttributes.addFlashAttribute("newUserCreated", "Kirjaudu sisään!");
         return "redirect:/tervetuloa";
     }
-    
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateUser(@RequestParam(required = false) String username,
+            @RequestParam(required = false) String password, @RequestParam(required = false) String passwordAgain,
+            RedirectAttributes redirectAttributes) {
+
+        String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Person updatedUser = userRepository.findByUsername(personName);
+
+        // TO IMPLEMENT USERNAME CHANGE PASSWORD MUST BE MANDATORY
+        System.out.println(username);
+
+        if (username != null && !username.equals("")) {
+            
+            updatedUser.setUsername(username);
+
+            if (userRepository.findByUsername(username) != null) {
+                redirectAttributes.addFlashAttribute("errorMessage", "Käyttäjänimi on jo käytössä!");
+                System.out.println("a");
+
+                return "redirect:/tervetuloa";
+            }
+        }
+        if (password != null && !password.equals("")) {
+
+            updatedUser.setPassword(password);
+            updatedUser.setPasswordAgain(password);
+
+            if (!updatedUser.getPassword().equals(updatedUser.getPasswordAgain())) {
+                redirectAttributes.addFlashAttribute("errorMessage", "Salasanat eivät täsmänneet!");
+                System.out.println("b");
+                return "redirect:/tervetuloa";
+            } else if (updatedUser.getPassword().length() < 4) {
+                System.out.println("c");
+                redirectAttributes.addFlashAttribute("errorMessage", "Salasanan kuuluu olla vähintään 4 merkkiä pitkä!");
+                return "redirect:/tervetuloa";
+            }
+        }
+
+        System.out.println(updatedUser.getUsername());
+        System.out.println(updatedUser.getPassword());
+        System.out.println(updatedUser.getPasswordAgain());
+        System.out.println(updatedUser.getId());
+
+        System.out.println("3");
+
+        System.out.println("2");
+
+        System.out.println("4");
+        updatedUser.setPasswordAgain("0000");
+        updatedUser.setSaltedPassword();
+
+        System.out.println(updatedUser.getUsername());
+
+        userRepository.save(updatedUser);
+        redirectAttributes.addFlashAttribute("userUpdated", "Tiedot päivitetty!");
+        return "redirect:/tervetuloa";
+    }
+
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
-    public String deleteUser(@PathVariable Long id ) {
-        
+    public String deleteUser(@PathVariable Long id) {
+
         userRepository.delete(id);
-        
+
         return "redirect:/logout";
     }
 }

@@ -30,6 +30,7 @@
                         <li class = "login">
                             <input type="password" name="password" placeholder="Password" />
                         </li>
+                        <li><span class="errorWhite" id="errorMsg"></span></li>
                         <li class = "login">
                             <input type="submit" value="Kirjaudu sisään!" />
                         </li>
@@ -47,19 +48,27 @@
                     <span>Tervetuloa <span th:text="${loggedUser.username}"></span>!</span>
                 </div>
                 <div class="loggedForm">
-                    <form method="POST" th:action="@{/authenticate}">
+                    <form action="#" th:action="@{/uusiKayttaja/update}" th:object="${person}" method="POST">
                         <ul>
                             <li class="formTitle">
                                 <span>Käyttäjätiedot </span>
+                                
                             </li>
                             <li class = "login">
-                                <input type="text" name="username" th:value="${loggedUser.username}" />
+                                <input type="text" name="username" th:field="*{username}" th:placeholder="${loggedUser.username}" disabled="true"/>
+                            </li>
+                            
+                            <li class = "login">
+                                <input type="password" th:field="*{password}" placeholder="Uusi salasana" />
+                                
                             </li>
                             <li class = "login">
-                                <input type="password" name="password" placeholder="Password" />
+                                <input type="password" th:field="*{passwordAgain}" placeholder="Salasana uudestaan" />
                             </li>
                             <li class = "editUser">
-                                <input type="submit" value="Muokkaa tietoja! (ei toimi vielä)" />
+                                <span class="error" th:text="${errorMessage}">Virheviesti</span>
+                                <span th:text="${userUpdated}">Onnistui</span>
+                                <input type="submit" value="Vaihda salasana" />
                             </li>
                         </ul>
                     </form>
