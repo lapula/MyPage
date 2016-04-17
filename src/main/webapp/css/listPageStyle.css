@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    background: url('/images/backgroundCompressed.jpg');
+    background: url('/images/backgroundCompressed.jpg') gray;
 }
 
 
@@ -186,7 +186,41 @@ header {
 
 
 
-@media (max-width:1024px) {
+@media (max-width:720px) {
+    body {
+        background: url('/images/backgroundCompressedMobile.jpg');
+        background-repeat: repeat-y;
+    }
+
+    .mobileTitle {
+        display:block;
+    }
+
+
+    .upper-div {
+        display: none;
+    }
+
+    .center-div {
+        margin: 20em auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        max-height: 25%;
+    }
+
+    header {
+        font-size: 3.5vw;
+    }
+
+    .login input[type=text], .login input[type=password] {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg');
         background-repeat: repeat-y;
