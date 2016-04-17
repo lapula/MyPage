@@ -16,8 +16,24 @@
             <span th:text="${itemList.name}"></span>
         </div>
 
+
+
         <div id="wrapper">
             <div class="center-List">
+
+                <div th:if="${loggedUser != null}">
+
+
+                    <ul>
+                        <form id="nyyttariLomake" th:if="${loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">
+                            <li><input type="text" placeholder="Nimi, esim: Kokista 1,5l" th:field="*{name}" /></li>
+                            <li><input type="number" placeholder="Määrä" th:field="*{amount}" /></li>
+                            <li><input type="submit" value="Lisää tavara!" /></li>
+                        </form>
+                    </ul>
+
+                </div>
+
                 <ul th:each="item : ${items}">
                     <li>
                         <span th:text="${item.name}"></span>, <span th:text="${item.amount}"></span> kpl.
@@ -38,25 +54,7 @@
                     </div>
                 </ul>
 
-                <div th:if="${loggedUser != null}">
-                    <form th:if="${loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">
 
-                        <table>
-                            <tr>
-                                <td>Nimi: </td>
-                                <td><input type="text" th:field="*{name}" /></td>
-                            </tr>
-                            <tr>
-                                <td>Määrä: </td>
-                                <td><input type="number" th:field="*{amount}" /></td>
-                            </tr>
-                            <tr>
-                                <td><input type="submit" value="Lisää tavara!" /></td>
-                            </tr>
-
-                        </table>
-                    </form>
-                </div>
             </div>
         </div>
 
