@@ -11,12 +11,6 @@ console.log("ready!");
                 bg.height(jQuery(window).height() + 100);
             }
             resizeBackground();
-            bg = jQuery(".center-div");
-            jQuery(window).resize("resizeBackground");
-            function resizeBackground2() {
-                bg.height(jQuery(window).height() + 100);
-            }
-            resizeBackground2();
         }
         
         
