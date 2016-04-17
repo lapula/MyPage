@@ -13,5 +13,6 @@ console.log("ready!");
             resizeBackground();
         }
         
+        $('input').attr('autocomplete','off');
         
 });
