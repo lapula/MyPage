@@ -37,14 +37,26 @@ public class NewUserController {
     
     
     @RequestMapping(method = RequestMethod.POST)
-    public String createNewUser(@Valid @ModelAttribute Person user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String createNewUser(Model model, @Valid @ModelAttribute Person user, BindingResult bindingResult,
+            RedirectAttributes redirectAttributes) {
         
         if (bindingResult.hasErrors()) {
-            System.out.println(user.getPassword());
-            System.out.println(bindingResult.getAllErrors().get(0));
+            return "uusiKayttaja";
+        } else if (userRepository.findByUsername(user.getUsername()) != null) {
+            model.addAttribute("errorMessage", "Käyttäjänimi on jo käytössä!");
+            return "uusiKayttaja";
+        } else if (!user.getPassword().equals(user.getPasswordAgain())) {
+            model.addAttribute("errorMessage", "Salasanat eivät täsmänneet!");
+            return "uusiKayttaja";
+        } else if (user.getPassword().length() < 4) {
+            model.addAttribute("errorMessage", "Salasanan kuuluu olla vähintään 4 merkkiä pitkä!");
             return "uusiKayttaja";
         }
+        
+        
+        user.setPasswordAgain("0000");
         user.setItems(new ArrayList<>());
+        user.setSaltedPassword();
         userRepository.save(user);
         redirectAttributes.addFlashAttribute("newUserCreated", "Kirjaudu sisään!");
         return "redirect:/tervetuloa";

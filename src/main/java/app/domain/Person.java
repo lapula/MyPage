@@ -37,8 +37,10 @@ public class Person implements Serializable {
     private String username;
     
     @Column(name="password")
-    @NotBlank
     private String password;
+    
+    @Column(name="passwordAgain")
+    private String passwordAgain;
     
     @Column(name="salt")
     private String salt;
@@ -46,6 +48,17 @@ public class Person implements Serializable {
 
     @OneToMany(mappedBy = "person")
     private List<ItemList> items;
+
+    public String getPasswordAgain() {
+        return passwordAgain;
+    }
+
+    public void setPasswordAgain(String passwordAgain) {
+        this.passwordAgain = passwordAgain;
+    }
+    
+    
+    
     
     public String getUsername() {
         return username;
@@ -60,6 +73,10 @@ public class Person implements Serializable {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public void setSaltedPassword() {
         this.salt = BCrypt.gensalt();
         this.password = BCrypt.hashpw(password, this.salt);
     }

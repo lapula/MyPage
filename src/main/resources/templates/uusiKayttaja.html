@@ -22,11 +22,16 @@
                             <span>Rekisteröi uusi käyttäjä </span>
                         </li>
                         <li class = "login">
-                            <input type="text" th:field="*{username}" placeholder="Username" />
+                            <input type="text" th:field="*{username}" placeholder="Käyttäjänimi" />
                             <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Virheviesti</span>
                         </li>
                         <li class = "login">
-                            <input type="password" th:field="*{password}" placeholder="Password" />
+                            <input type="password" th:field="*{password}" placeholder="Salasana" />
+                            <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Virheviesti</span>
+                            <span class="error" th:text="${errorMessage}">Virheviesti</span>
+                        </li>
+                        <li class = "login">
+                            <input type="password" th:field="*{passwordAgain}" placeholder="Salasana uudestaan" />
                             <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Virheviesti</span>
                         </li>
                         <li class = "login">
