@@ -5,7 +5,6 @@ html, body {
 
 
 #wrapper {
-    background-image: url('/images/background.jpg');
     background: url('/images/background.jpg') no-repeat center center;
     height: 100%;
     margin: 0px;
@@ -180,7 +179,7 @@ header {
 
 @media (max-width:1000px) {
     #wrapper {
-        background-image: url('/images/backgroundMobile.jpg');
+        background: url('/images/backgroundMobile.jpg') no-repeat center center;
     }
 
     .upper-div {

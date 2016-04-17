@@ -12,6 +12,10 @@
             <div th:replace="fragments/header :: header"></div>
         </div>
 
+        <div class="upper-div">
+            <span th:text="${itemList.name}"></span>
+        </div>
+
         <div id="wrapper">
             <div class="center-List">
                 <ul th:each="item : ${items}">

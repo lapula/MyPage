@@ -1,8 +1,10 @@
 html, body {
     height: 100%;
     margin:0px;
-    background-image: url('/images/backgroundCompressed.jpg');
-    background: url('/images/background.jpg');
+}
+
+body {
+    background: url('/images/backgroundCompressed.jpg');
 }
 
 
@@ -46,6 +48,22 @@ header {
     font-size: 17px;
 }
 
+.upper-div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80%;
+    font-size: 5vw;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    text-shadow: 2px 2px 10px black;
+}
+
 .center-List {
     position: absolute;
     margin: 15em auto;
@@ -54,7 +72,7 @@ header {
     left: 0;
     width: 40%;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
     border-radius: 5px;
     color:white;
     padding: 2em;
@@ -152,35 +170,32 @@ header {
 }
 
 
-.upper-div {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-height: 80%;
-    font-size: 4vw;
-    color: white;
-    white-space: nowrap;
-    text-align: center;
-    text-shadow: 2px 2px 10px black;
-}
+
 
 
 @media (max-width:1200px) {
-    #wrapper {
-        background-image: url('/images/backgroundCompressedMobile.jpg');
+    body {
+        background: url('/images/backgroundCompressedMobile.jpg');
+        background-repeat: repeat-y;
     }
 
     .upper-div {
         
-        max-height: 70%;
+        max-height: 700px;
         
     }
 }
 
 footer {
-    background-color: #4CAF50;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  color:white;
+  position: fixed;
+}
+
+footer a {
+  color: white;
 }

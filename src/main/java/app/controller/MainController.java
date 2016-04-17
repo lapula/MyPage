@@ -44,7 +44,7 @@ public class MainController {
 
         model.addAttribute("items", itemList.getItems());
         model.addAttribute("item", new Item());
-        model.addAttribute("itemListId", id);
+        model.addAttribute("itemList", itemList);
         model.addAttribute("itemListCreatorId", itemList.getPerson().getId());
 
         
