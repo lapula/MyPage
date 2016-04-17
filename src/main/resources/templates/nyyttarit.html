@@ -25,10 +25,10 @@
                 <ul>
                     <form id="nyyttariLomake" action="#" th:action="@{/nyyttarit}" th:object="${itemList}" method="POST">
                         <li>
-                            <input type="text" th:field="*{name}" />
+                            <input type="text" placeholder="Tapahtuman nimi" th:field="*{name}" />
                         </li>
                         <li>
-                            <textarea form="nyyttariLomake" th:field="*{description}" rows="4" cols="50"></textarea>
+                            <textarea placeholder="Tapahtuman kuvaus" form="nyyttariLomake" th:field="*{description}" rows="4" cols="50"></textarea>
                         </li>
                         <li>
                             <input type="submit" value="Lisää lista!" />
@@ -37,9 +37,9 @@
                 </ul>
 
 
-                <ul th:each="itemList : ${itemLists}">
+                <ul class="nyyttariKuvaus" th:each="itemList : ${itemLists}">
 
-                    <li>
+                    <li id="nyyttariTitle">
                         <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
                     </li>
 
@@ -48,7 +48,7 @@
                     </li>
 
                     <li>
-                        <form th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
+                        <form id="poistaNyyttariLomake" th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
                     </li>
 
                 </ul>
