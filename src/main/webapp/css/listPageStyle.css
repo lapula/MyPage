@@ -173,7 +173,7 @@ header {
 
 
 
-@media (max-width:1200px) {
+@media (max-width:1000px) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg');
         background-repeat: repeat-y;

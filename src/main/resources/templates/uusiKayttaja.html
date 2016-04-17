@@ -15,10 +15,13 @@
 
 
             <div class="center-div" th:if="${loggedUser == null}">
+                
+                
+                
                 <form class="loggedForm"  action="#" th:action="@{/uusiKayttaja}" th:object="${person}" method="POST">
                     <ul>
-                        <li>
-                            <span>Rekisteröi uusi käyttäjä: </span>
+                        <li class="formTitle">
+                            <span>Rekisteröi uusi käyttäjä </span>
                         </li>
                         <li class = "login">
                             <input type="text" th:field="*{username}" placeholder="Username" />

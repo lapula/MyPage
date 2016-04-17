@@ -19,6 +19,9 @@
             </div>
 
             <div class="center-div" th:if="${loggedUser == null}">
+                <div class="mobileTitle">
+                    <span >Tervetuloa!</span>
+                </div>
                 <form class="notLoggedForm" method="POST" th:action="@{/authenticate}">
                     <ul>
                         <li class = "login">
@@ -34,17 +37,20 @@
                 </form>
 
             </div>
-            
+
             <div class="upper-div" th:if="${loggedUser != null}">
                 <span>Tervetuloa <span th:text="${loggedUser.username}"></span>!</span>
             </div>
 
             <div class="center-div" th:if="${loggedUser != null}">
+                <div class="mobileTitle">
+                    <span>Tervetuloa <span th:text="${loggedUser.username}"></span>!</span>
+                </div>
                 <div class="loggedForm">
                     <form method="POST" th:action="@{/authenticate}">
                         <ul>
-                            <li>
-                                <span>Käyttäjätiedot: </span>
+                            <li class="formTitle">
+                                <span>Käyttäjätiedot </span>
                             </li>
                             <li class = "login">
                                 <input type="text" name="username" th:value="${loggedUser.username}" />
