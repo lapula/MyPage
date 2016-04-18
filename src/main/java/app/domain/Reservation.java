@@ -6,27 +6,24 @@
 package app.domain;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author Sara ja Laur
  */
 @Entity
-public class Item implements Serializable {
+public class Reservation implements Serializable {
 
     @ManyToOne
-    private ItemList itemList;
+    private Item item;
 
     @Id
-    @Column(name = "item_id")
+    @Column(name = "reservation_id")
     @GeneratedValue
     private Long id;
     
@@ -35,13 +32,6 @@ public class Item implements Serializable {
     
     @Column(name = "amount")
     private Integer amount;
-    
-    @Column(name = "reserved")
-    private Integer reserved;
-    
-    @Column(name = "reservedBy")
-    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER)
-    private List<Reservation> reservedBy;
 
     public Long getId() {
         return id;
@@ -49,14 +39,6 @@ public class Item implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public ItemList getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(ItemList itemList) {
-        this.itemList = itemList;
     }
 
     public String getName() {
@@ -75,22 +57,12 @@ public class Item implements Serializable {
         this.amount = amount;
     }
 
-    public Integer getReserved() {
-        return reserved;
+    public Item getItem() {
+        return item;
     }
 
-    public void setReserved(Integer reserved) {
-        this.reserved = reserved;
+    public void setItem(Item item) {
+        this.item = item;
     }
-
-    public List<Reservation> getReservedBy() {
-        return reservedBy;
-    }
-
-    public void setReservedBy(List<Reservation> reservedBy) {
-        this.reservedBy = reservedBy;
-    }
-
     
-
 }

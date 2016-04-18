@@ -53,9 +53,7 @@ public class ItemListController {
         
         itemList.setItems(new ArrayList<>());
         itemList.setPerson(person);
-        
         itemList = itemListRepository.save(itemList);
-        System.out.println(itemList.getId());
         person.getItems().add(itemList);
         personRepository.save(person);
         

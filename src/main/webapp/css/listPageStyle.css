@@ -9,7 +9,7 @@ body {
 
 
 #wrapper {
-    
+
     height: 100%;
     margin: 0px;
 }
@@ -66,12 +66,17 @@ header {
 
 .center-List {
     position: absolute;
+    font-size: 20px;
     margin: 15em auto;
     top: 0;
     right: 0;
     left: 0;
-    width: 40%;
-    background-color: white;
+    width: 50%;
+    background-color: #fff; 
+    background-image: 
+        linear-gradient(90deg, transparent 19px, #abced4 19px, #abced4 21px, transparent 21px),
+        linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
     border-radius: 5px;
     color:black;
     padding: 2em;
@@ -84,13 +89,15 @@ header {
     width: 100%;
     padding: 5px;
     margin:0;
-    margin-bottom: 0px;
+    margin-bottom: 24px;
     margin-top: 24px;
     text-align: center;
 }
 
 #description {
-    margin: 20px 0 10px 0;
+    margin: 20px auto 10px;
+    width: 90%;
+    text-align: center;
 }
 
 #nyyttariLomake {
@@ -105,7 +112,6 @@ header {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-
 }
 
 #nyyttariLomake input[type=text], #nyyttariLomake textarea, #nyyttariLomake input[type=number] {
@@ -134,11 +140,8 @@ header {
     list-style-type: none;
     list-style-type: none;
     padding: 1em;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10px;
-    background-color: azure;
+
+
 }
 
 .nyyttariKuvaus li {
@@ -148,7 +151,7 @@ header {
 .nyyttariKuvaus #nyyttariTitle {
     text-align: center;
     font-size: xx-large;
-    
+
 }
 
 .nyyttariKuvaus #nyyttariTitle a {
@@ -175,14 +178,13 @@ header {
     list-style-type: none;
     width:100%;
     text-align: center;
-    margin-bottom: 100px;
-    text-shadow: 1px 1px 20px black;
-    color:white;
+    margin-bottom: 12px;
+    color:black;
     display:none;
 }
 
 .mobileTitle span {
-    font-size: 8vw;
+    font-size: 4vw;
 }
 
 .formTitle {
@@ -198,6 +200,14 @@ header {
 
 }
 
+.itemList ul {
+    list-style: none;
+}
+
+.itemList ul li ul {
+    margin: 0;
+    list-style: none;
+}
 
 
 @media (max-width:720px) {
@@ -269,15 +279,15 @@ header {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  text-align: center;
-  color:white;
-  position: fixed;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    color:white;
+    position: fixed;
 }
 
 footer a {
-  color: white;
+    color: white;
 }

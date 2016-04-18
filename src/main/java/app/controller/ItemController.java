@@ -7,6 +7,7 @@ package app.controller;
 
 import app.domain.Item;
 import app.domain.ItemList;
+import app.domain.Reservation;
 import app.repository.ItemListRepository;
 import java.util.List;
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.ItemRepository;
+import app.repository.ReservationRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +39,9 @@ public class ItemController {
     
     @Autowired
     private ItemListRepository itemListRepository;
+    
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     
     @ModelAttribute
@@ -55,7 +60,7 @@ public class ItemController {
         ItemList itemList = itemListRepository.findById(id);
         item.setItemList(itemList);
         item.setReserved(0);
-        item.setReservedBy(new HashMap<>());
+        item.setReservedBy(new ArrayList<>());
         item.setId(null);
         item = itemRepository.save(item);
         
@@ -71,9 +76,16 @@ public class ItemController {
             @RequestParam("reserverName") String reserverName) {
         
         Item item = itemRepository.findOne(itemId);
-        item.getReservedBy().put(reserverName, reserveAmount);
-        itemRepository.save(item);
-
+        Reservation reservation = new Reservation();
+        reservation.setAmount(reserveAmount);
+        reservation.setName(reserverName);
+        reservation.setItem(item);
+        reservationRepository.save(reservation);
+        
+        item.getReservedBy().add(reservation);
+        item.setReserved(item.getReserved()+ reserveAmount);
+        item = itemRepository.save(item);
+        
         return "redirect:/nyyttarit/" + id;
     }
     

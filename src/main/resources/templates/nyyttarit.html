@@ -15,7 +15,7 @@
         <div id="wrapper">
 
             <div class="upper-div">
-                <span>Omat nyyttärit.</span>
+                <span>Omat nyyttärit</span>
             </div>
 
             <div class="center-List">
@@ -23,7 +23,7 @@
 
                 <ul>
                     <li class="formTitle">
-                        <span>Luo uusi nyyttäri </span>
+                        <span>Luo uusi nyyttäri</span>
                     </li>
 
                     <form id="nyyttariLomake" action="#" th:action="@{/nyyttarit}" th:object="${itemList}" method="POST">
@@ -44,23 +44,25 @@
 
                 <hr></hr>
 
-                <ul class="nyyttariKuvaus" th:each="itemList : ${itemLists}">
+                <div th:each="itemList : ${itemLists}">
 
-                    <li id="nyyttariTitle">
-                        <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
-                    </li>
+                    <ul class="nyyttariKuvaus" >
 
-                    <li id="description">
-                        <span th:text="${itemList.description}"></span>
-                    </li>
+                        <li id="nyyttariTitle">
+                            <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
+                        </li>
 
-                    <li>
-                        <form id="poistaNyyttariLomake" th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
-                    </li>
+                        <li id="description">
+                            <span th:utext="${#strings.replace( #strings.escapeXml( itemList.description ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" ></span>
+                        </li>
 
-                </ul>
-
-
+                        <li>
+                            <form id="poistaNyyttariLomake" th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="poista"/></form>
+                        </li>
+                    </ul>
+                    <hr></hr>
+                </div>
+                
             </div>
         </div>
 

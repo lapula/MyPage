@@ -21,7 +21,7 @@
             <div class="center-div" th:if="${loggedUser == null}">
 
                 <div class="mobileTitle">
-                    <span>Rekisteröityminen.</span>
+                    <span>Luo tunnus</span>
                 </div>
 
                 <form class="notLoggedForm"  action="#" th:action="@{/uusiKayttaja}" th:object="${person}" method="POST">
