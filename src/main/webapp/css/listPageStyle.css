@@ -86,6 +86,11 @@ header {
     margin:0;
     margin-bottom: 0px;
     margin-top: 24px;
+    text-align: center;
+}
+
+#description {
+    margin: 20px 0 10px 0;
 }
 
 #nyyttariLomake {
@@ -152,7 +157,7 @@ header {
 }
 
 #poistaNyyttariLomake input[type=submit] {
-    width: 100%;
+    width: 30%;
     color: white;
     padding: 7px 10px;
     margin: 8px auto;
@@ -162,6 +167,8 @@ header {
     cursor: pointer;
     background-color: red;
 }
+
+
 
 
 .mobileTitle {
