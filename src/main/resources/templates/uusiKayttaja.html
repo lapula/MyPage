@@ -13,16 +13,20 @@
         </div>
 
         <div id ="wrapper">
-
-
+            
+            <div class="upper-div" th:if="${loggedUser == null}">
+                <span>Rekisteröityminen</span>
+            </div>
 
             <div class="center-div" th:if="${loggedUser == null}">
-                
-                <form class="loggedForm"  action="#" th:action="@{/uusiKayttaja}" th:object="${person}" method="POST">
+
+                <div class="mobileTitle">
+                    <span>Rekisteröityminen.</span>
+                </div>
+
+                <form class="notLoggedForm"  action="#" th:action="@{/uusiKayttaja}" th:object="${person}" method="POST">
                     <ul>
-                        <li class="formTitle">
-                            <span>Rekisteröi uusi käyttäjä </span>
-                        </li>
+
                         <li class = "login">
                             <input type="text" th:field="*{username}" placeholder="Käyttäjänimi" />
                             <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Virheviesti</span>
@@ -42,12 +46,12 @@
                     </ul>
                 </form>
             </div>
-            
+
             <div class="upper-div" th:if="${loggedUser != null}">
                 <span>Olet jo kirjautunut!</span>
             </div>
 
-            
+
         </div>
 
         <div id ="welcomeContent">
