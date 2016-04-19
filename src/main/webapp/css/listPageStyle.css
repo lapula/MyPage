@@ -304,6 +304,15 @@ header {
     .login input[type=text], .login input[type=password] {
         font-size: 2vw;
     }
+    
+    input[type=text], input[type=number] {
+        font-size: 4vw;
+    }
+    
+    #nyyttariLomake {
+        width: 60%;
+        margin: 0 auto;
+    }
 }
 
 footer {
