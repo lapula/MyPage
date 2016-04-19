@@ -265,8 +265,8 @@ header {
         font-size: 2vw;
     }
     
-    input[type=text], input[type=number] {
-        font-size: 4vw;
+    input[type=text], input[type=number], textarea, input[type=submit] {
+        font-size: 3vw;
     }
     
     #nyyttariLomake {
@@ -305,8 +305,8 @@ header {
         font-size: 2vw;
     }
     
-    input[type=text], input[type=number] {
-        font-size: 4vw;
+    input[type=text], input[type=number], textarea, input[type=submit] {
+        font-size: 3vw;
     }
     
     #nyyttariLomake {
