@@ -71,7 +71,7 @@ header {
     top: 0;
     right: 0;
     left: 0;
-    width: 60%;
+    width: 50%;
     background-color: #fff; 
     background-image: 
         linear-gradient(90deg, transparent 19px, #abced4 19px, #abced4 21px, transparent 21px),
@@ -251,7 +251,7 @@ header {
     }
 
     .center-List {
-        width: 80%;
+        width: 70%;
         margin: 6em auto;
     }
 
@@ -280,7 +280,7 @@ header {
     }
 
     .center-List {
-        width: 80%;
+        width: 70%;
         margin: 6em auto;
     }
 
