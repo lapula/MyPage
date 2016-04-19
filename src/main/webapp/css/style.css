@@ -99,6 +99,7 @@ header {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 2vh;
     -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);

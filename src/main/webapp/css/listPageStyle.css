@@ -255,7 +255,12 @@ header {
     .center-List {
         width: 70%;
         margin: 6em auto;
+        font-size: 30px;
     }
+    
+    #itemTitle {
+    font-size: 26px;
+}
 
     header {
         font-size: 3.5vw;
@@ -270,7 +275,7 @@ header {
     }
     
     #nyyttariLomake {
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
     }
     
@@ -295,7 +300,12 @@ header {
     .center-List {
         width: 70%;
         margin: 6em auto;
+        font-size: 30px;
     }
+    
+    #itemTitle {
+    font-size: 26px;
+}
 
     header {
         font-size: 3.5vw;
@@ -310,9 +320,10 @@ header {
     }
     
     #nyyttariLomake {
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
     }
+    
 }
 
 footer {
