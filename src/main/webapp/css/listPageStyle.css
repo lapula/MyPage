@@ -98,6 +98,7 @@ header {
     margin: 20px auto 10px;
     width: 90%;
     text-align: center;
+    font-size: 48px;
 }
 
 #nyyttariLomake {
@@ -198,7 +199,7 @@ header {
 }
 
 .formTitle span{
-    font-size: 2.5vw;
+    font-size: 48px;
 
 }
 

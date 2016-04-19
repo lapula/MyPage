@@ -87,7 +87,7 @@ header {
     -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
-    font-size: 2vh;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -99,7 +99,7 @@ header {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 20px;
     -webkit-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.75);
@@ -239,7 +239,7 @@ header {
     }
 
     .login input[type=text], .login input[type=password], input[type=submit] {
-        font-size: 2vw;
+        font-size: 20px;
     }
 }
 
@@ -273,7 +273,7 @@ header {
     }
 
     .login input[type=text], .login input[type=password], input[type=submit] {
-        font-size: 2vw;
+        font-size: 20px;
     }
 }
 
