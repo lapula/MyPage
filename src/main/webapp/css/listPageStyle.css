@@ -74,8 +74,8 @@ header {
     width: 50%;
     background-color: #fff; 
     background-image: 
-        linear-gradient(90deg, transparent 19px, #abced4 19px, #abced4 21px, transparent 21px),
-        linear-gradient(#eee .1em, transparent .1em);
+        linear-gradient(90deg, transparent 19px, #eee 19px, #eee 21px, transparent 21px),
+        linear-gradient(#F4F4F4  .1em, transparent .1em);
     background-size: 100% 1.2em;
     border-radius: 5px;
     color:black;
@@ -211,9 +211,27 @@ header {
     list-style: none;
 }
 
-#itemTitle {
+.extraItem ul {
+    list-style: none;
+}
+
+.extraItem ul li ul {
+    margin: 0;
+    list-style: none;
+}
+
+.extraItem ul input[type=text], .extraItem input[type=number] {
+    width:90%;
+    text-align: center;
+}
+
+.itemTitle {
     font-size: 23px;
-    text-decoration: underline;
+}
+
+.itemCommentTitle {
+    font-size: 23px;
+    margin-bottom: 10px;
 }
 
 .reserveForm input[type=text], .reserveForm input[type=number] {
@@ -245,13 +263,13 @@ header {
     border-radius: 4px;
     cursor: pointer;
     background-color: lightgray;
-    
+
 }
 
 .reserveForm input[type=submit]:hover {
     background-color: darkslategray;
     color: white;
-  
+
 }
 
 
@@ -260,7 +278,7 @@ header {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
         background-repeat: repeat-y;
     }
-    
+
     hr {
         background-color: grey;
         height: 1px;
@@ -269,7 +287,7 @@ header {
     .mobileTitle {
         display:block;
     }
-    
+
     .mobileTitle span {
         font-size: 36px;
     }
@@ -288,7 +306,11 @@ header {
         font-size: 30px;
     }
 
-    #itemTitle {
+    .itemTitle {
+        font-size: 36px;
+    }
+
+    .itemCommentTitle {
         font-size: 36px;
     }
 
@@ -317,7 +339,7 @@ header {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
         background-repeat: repeat-y;
     }
-    
+
     hr {
         background-color: grey;
         height: 1px;
@@ -326,7 +348,7 @@ header {
     .mobileTitle {
         display:block;
     }
-    
+
     .mobileTitle span {
         font-size: 36px;
     }
@@ -345,8 +367,13 @@ header {
         font-size: 30px;
     }
 
-    #itemTitle {
+    .itemTitle {
         font-size: 36px;
+    }
+
+    .itemCommentTitle {
+        font-size: 36px;
+
     }
 
     header {

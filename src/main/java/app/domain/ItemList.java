@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -38,6 +39,10 @@ public class ItemList extends AbstractBaseEntity {
     
     @OneToMany(mappedBy = "itemList")
     private List<Item> items;
+    
+    @Column(name = "comments")
+    @ElementCollection
+    private List<String> comments;
 
     public List<Item> getItems() {
         return items;
@@ -69,6 +74,14 @@ public class ItemList extends AbstractBaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<String> comments) {
+        this.comments = comments;
     }
     
     

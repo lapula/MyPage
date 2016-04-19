@@ -34,28 +34,29 @@
                 <div th:if="${loggedUser != null}">
 
 
-                    <ul>
-                        <form id="nyyttariLomake" th:if="${loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">
-                            <li><input type="text" placeholder="Nimi, esim: Kokista 1,5l" th:field="*{name}" /></li>
-                            <li><input type="number" placeholder="Määrä" th:field="*{amount}" /></li>
+                    <ul th:if="${loggedUser.id == itemListCreatorId}">
+                        <form id="nyyttariLomake"  action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">
+                            <li><input type="text" required="required" placeholder="Nimi, esim: Kokista 1,5l" th:field="*{name}" /></li>
+                            <li><input type="number" required="required" placeholder="Määrä" th:field="*{amount}" /></li>
                             <li><input type="submit" value="Lisää tavara!" /></li>
                         </form>
+                        <hr style="margin-top: 24px"></hr>
                     </ul>
-                    <hr style="margin-top: 24px"></hr>
+
                 </div>
 
                 <div class="itemList" th:each="item : ${items}">
                     <ul>
                         <li>
-                            <div id="itemTitle"><span th:text="${item.name}"></span> <span th:text="${item.amount}"></span> kappaletta,
+                            <div class="itemTitle"><span th:text="${item.name}"></span> <span th:text="${item.amount}"></span> kappaletta,
 
                                 varattu <span th:text="${item.reserved}"></span>/<span th:text="${item.amount}"></span>.</div>
-                            <br/>
                             <ul>
                                 <li th:each="reserve : ${item.reservedBy}">
                                     Varannut: <span th:text="${reserve.name}"></span>, <span th:text="${reserve.amount}"></span> kpl.
                                 </li>
                             </ul>
+
                         </li>
                         <div th:if="${loggedUser != null}">
                             <li id="removeItem" th:if="${loggedUser.id == itemListCreatorId}">
@@ -72,10 +73,24 @@
                     </ul>
                     <hr style="margin-top: 24px"></hr>
                 </div>
-
+                <div class="extraItem">
+                    <ul>
+                        <li class="itemCommentTitle">
+                            Kommentteja:
+                        </li>
+                        <li th:each="comment : ${itemList.comments}">
+                            <span th:text="${comment}"></span>
+                        </li>
+                        <li>
+                            <form class="reserveForm" th:action="@{/nyyttarit/{id}/lisaaKommentti(id=${id}, tavara_id=${item.id})}" method="POST">
+                                <input type="text" name="comment" required="required" placeholder="Kommentti"/>
+                                <input type="submit" value="Lisää"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-
         <div th:replace="fragments/footer :: footer"></div>
     </body>
 </html>

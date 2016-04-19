@@ -56,6 +56,7 @@ public class ItemListController {
         Person person = personRepository.findByUsername(personName);
         
         itemList.setItems(new ArrayList<>());
+        itemList.setComments(new ArrayList<>());
         itemList.setPerson(person);
         itemList = itemListRepository.save(itemList);
         person.getItems().add(itemList);

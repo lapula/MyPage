@@ -49,6 +49,16 @@ public class ItemController {
         return new Item();
     }
     
+    @RequestMapping(value="lisaaKommentti", method = RequestMethod.POST)
+    public String addCommentToItemList(@PathVariable String id, @RequestParam String comment) {
+        
+        ItemList itemList = itemListRepository.findById(id);
+        itemList.getComments().add(comment);
+        itemListRepository.save(itemList);
+        
+        return "redirect:/nyyttarit/" + id;
+    }
+    
     
     @RequestMapping(value="/lisaa", method = RequestMethod.POST)
     public String createNewItem(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable String id) {
