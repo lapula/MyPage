@@ -47,12 +47,13 @@
                 <div class="itemList" th:each="item : ${items}">
                     <ul>
                         <li>
-                            <span th:text="${item.name}"></span>, <span th:text="${item.amount}"></span> kappaletta.
+                            <div id="itemTitle"><span th:text="${item.name}"></span> <span th:text="${item.amount}"></span> kappaletta,
+
+                            varattu <span th:text="${item.reserved}"></span>/<span th:text="${item.amount}"></span>.</div>
                             <br/>
-                            Varattu <span th:text="${item.reserved}"></span>/<span th:text="${item.amount}"></span>
                             <ul>
                                 <li th:each="reserve : ${item.reservedBy}">
-                                    Varannut: <span th:text="${reserve.name}"></span> Määrä: <span th:text="${reserve.amount}"></span>
+                                    Varannut: <span th:text="${reserve.name}"></span>, <span th:text="${reserve.amount}"></span> kpl.
                                 </li>
                             </ul>
                         </li>
@@ -61,9 +62,9 @@
                                 <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
                             </li>
                         </div>
-                        <form th:action="@{/nyyttarit/{id}/varaa/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST">
-                            <input type="text" name="reserverName" required="required"/>
-                            <input type="number" min="1" th:max="${item.amount - item.reserved}" name="reserveAmount" />
+                        <form th:if="${item.amount != item.reserved}" class="reserveForm" th:action="@{/nyyttarit/{id}/varaa/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST">
+                            <input type="text" name="reserverName" required="required" placeholder="Varaaja"/>
+                            <input type="number" min="1" th:max="${item.amount - item.reserved}" name="reserveAmount" placeholder="Määrä"/>
                             <input type="submit" value="Varaa"/>
                         </form>
                     </ul>
