@@ -98,7 +98,7 @@ header {
     margin: 20px auto 10px;
     width: 90%;
     text-align: center;
-    font-size: 48px;
+    font-size: 26px;
 }
 
 #nyyttariLomake {
@@ -143,7 +143,7 @@ header {
 
 .nyyttariKuvaus #nyyttariTitle {
     text-align: center;
-    font-size: xx-large;
+    font-size: 36px;
 
 }
 
@@ -187,7 +187,7 @@ header {
 }
 
 .mobileTitle span {
-    font-size: 4vw;
+    font-size: 36px;
 }
 
 .formTitle {
