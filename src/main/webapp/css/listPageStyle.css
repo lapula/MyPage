@@ -246,7 +246,14 @@ header {
     .mobileTitle {
         display:block;
     }
+    
+    .mobileTitle span {
+        font-size: 36px;
+    }
 
+    .formTitle span{
+        font-size: 36px;
+    }
 
     .upper-div {
         display: none;
@@ -257,10 +264,10 @@ header {
         margin: 6em auto;
         font-size: 30px;
     }
-    
+
     #itemTitle {
-    font-size: 26px;
-}
+        font-size: 36px;
+    }
 
     header {
         font-size: 3.5vw;
@@ -269,17 +276,17 @@ header {
     .login input[type=text], .login input[type=password] {
         font-size: 2vw;
     }
-    
+
     input[type=text], input[type=number], textarea, input[type=submit] {
         font-size: 3vw;
     }
-    
+
     #nyyttariLomake {
         width: 90%;
         margin: 0 auto;
     }
-    
-    
+
+
 }
 
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
@@ -291,7 +298,14 @@ header {
     .mobileTitle {
         display:block;
     }
+    
+    .mobileTitle span {
+        font-size: 36px;
+    }
 
+    .formTitle span{
+        font-size: 36px;
+    }
 
     .upper-div {
         display: none;
@@ -302,10 +316,10 @@ header {
         margin: 6em auto;
         font-size: 30px;
     }
-    
+
     #itemTitle {
-    font-size: 26px;
-}
+        font-size: 36px;
+    }
 
     header {
         font-size: 3.5vw;
@@ -314,16 +328,16 @@ header {
     .login input[type=text], .login input[type=password] {
         font-size: 2vw;
     }
-    
+
     input[type=text], input[type=number], textarea, input[type=submit] {
         font-size: 3vw;
     }
-    
+
     #nyyttariLomake {
         width: 90%;
         margin: 0 auto;
     }
-    
+
 }
 
 footer {
