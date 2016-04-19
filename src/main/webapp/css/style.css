@@ -238,9 +238,6 @@ header {
         font-size: 3.5vw;
     }
 
-    .login input[type=text], .login input[type=password] {
-        font-size: 2vw;
-    }
 }
 
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
@@ -272,9 +269,6 @@ header {
         font-size: 3.5vw;
     }
 
-    .login input[type=text], .login input[type=password] {
-        font-size: 2vw;
-    }
 }
 
 footer {

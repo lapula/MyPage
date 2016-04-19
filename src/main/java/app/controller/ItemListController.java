@@ -11,6 +11,7 @@ import app.domain.Person;
 import app.repository.ItemListRepository;
 import app.repository.ItemRepository;
 import app.repository.PersonRepository;
+import app.repository.ReservationRepository;
 import java.util.ArrayList;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class ItemListController {
     
     @Autowired
     private ItemRepository itemRepository;
+    
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     
     @RequestMapping(method = RequestMethod.POST)
@@ -66,6 +70,7 @@ public class ItemListController {
         ItemList itemList = itemListRepository.findById(id);
         
         for (Item item : itemList.getItems()) {
+            reservationRepository.delete(item.getReservedBy());
             itemRepository.delete(item.getId());
         }
         

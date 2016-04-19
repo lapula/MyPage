@@ -92,7 +92,9 @@ public class ItemController {
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable String id, @PathVariable Long itemId ) {
         
-        itemRepository.delete(itemId);
+        Item item = itemRepository.findOne(itemId);
+        reservationRepository.delete(item.getReservedBy());
+        itemRepository.delete(item);
         
         return "redirect:/nyyttarit/" + id;
     }

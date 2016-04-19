@@ -163,7 +163,17 @@ header {
     background-color: red;
 }
 
-
+#removeItem input[type=submit] {
+    width: 100%;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: red;
+    width: 90%;
+}
 
 
 .mobileTitle {
@@ -203,6 +213,7 @@ header {
 
 #itemTitle {
     font-size: 23px;
+    text-decoration: underline;
 }
 
 .reserveForm input[type=text], .reserveForm input[type=number] {
@@ -226,21 +237,33 @@ header {
 
 .reserveForm input[type=submit] {
     width: 30%;
-    color: white;
+    color: black;
     padding: 7px 10px;
     margin: 8px auto;
     margin-bottom: 8px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    background-color: lightgray;
+    
+}
+
+.reserveForm input[type=submit]:hover {
     background-color: darkslategray;
+    color: white;
+  
 }
 
 
 @media (max-width:720px) {
     body {
-        background: url('/images/backgroundCompressedMobile.jpg');
+        background: url('/images/backgroundCompressedMobile.jpg') gray;
         background-repeat: repeat-y;
+    }
+    
+    hr {
+        background-color: grey;
+        height: 1px;
     }
 
     .mobileTitle {
@@ -291,8 +314,13 @@ header {
 
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     body {
-        background: url('/images/backgroundCompressedMobile.jpg');
+        background: url('/images/backgroundCompressedMobile.jpg') gray;
         background-repeat: repeat-y;
+    }
+    
+    hr {
+        background-color: grey;
+        height: 1px;
     }
 
     .mobileTitle {
