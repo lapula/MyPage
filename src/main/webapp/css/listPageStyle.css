@@ -130,6 +130,7 @@ header {
     background-size: 201% 100%;
     background-position:right bottom;
     transition:all 0.8s ease;
+    transition-delay: 0.2s;
 }
 
 #nyyttariLomake input[type=submit]:hover {
@@ -174,6 +175,7 @@ header {
     background-size: 201% 100%;
     background-position:right bottom;
     transition:all 0.8s ease;
+    transition-delay: 0.2s;
 }
 
 #poistaNyyttariLomake input[type=submit]:hover {
@@ -189,11 +191,12 @@ header {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background: linear-gradient(to left, lightpink 50%, lightcoral 50%);
+    background: linear-gradient(to left, lightpink 50%, red 50%);
     background-size: 201% 100%;
     background-position:right bottom;
     transition:all 0.8s ease;
     width: 90%;
+    transition-delay: 0.2s;
 }
 
 #removeItem input[type=submit]:hover {
@@ -291,6 +294,7 @@ header {
     background-size: 201% 100%;
     background-position:right bottom;
     transition:all 0.8s ease;
+    transition-delay: 0.2s;
 
 }
 
@@ -301,21 +305,21 @@ header {
 }
 
 input[type=text], input[type=number], textarea {
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid black;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid black;
 }
- 
+
 input:focus, textarea:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .comment {
@@ -381,7 +385,11 @@ input:focus, textarea:focus {
         margin: 0 auto;
     }
 
-
+    #nyyttariLomake input[type=submit], #poistaNyyttariLomake input[type=submit], #removeItem input[type=submit],
+    .reserveForm input[type=submit] {
+        transition:all 0.5s ease;
+        transition-delay: 0.2s;
+    }
 }
 
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
@@ -441,6 +449,11 @@ input:focus, textarea:focus {
     #nyyttariLomake {
         width: 90%;
         margin: 0 auto;
+    }
+
+    #nyyttariLomake input[type=submit], #poistaNyyttariLomake input[type=submit], #removeItem input[type=submit],
+    .reserveForm input[type=submit] {
+        transition:all 0.5s ease;
     }
 
 }
