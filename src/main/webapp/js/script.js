@@ -50,8 +50,8 @@ $(document).ready(function () {
                 window.location.hash = hash;
                 });
             }
-            
         });
+        
         $('.removeCommentForm input').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});
         $('.removeCommentForm input').mouseout(function(){$(this).parent().first().css('text-decoration', 'none')});
         
