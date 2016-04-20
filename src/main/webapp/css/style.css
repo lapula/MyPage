@@ -297,7 +297,7 @@ header {
 
     #lower-div {
         position: absolute;
-        margin: 60 auto;
+        margin: 60em auto;
         height: 6vh;
         width: 100%;
         color: white;
