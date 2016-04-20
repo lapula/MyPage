@@ -171,6 +171,7 @@ header {
     right: 0;
     bottom: 0;
     left: 0;
+    max-height: 80%;
     width: 100%;
     color: white;
     white-space: nowrap;
@@ -180,6 +181,11 @@ header {
     background-color: rgb(255,255,255);
     background-color: rgba(255,255,255,0.6);
     text-shadow: 2px 2px 10px black;
+}
+
+.lower-div:hover {
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.7);
 }
 
 .lower-div span {
@@ -246,11 +252,25 @@ header {
 
 .guideSlides img {
     max-height: 20%;
-    max-width: 40%;
+    max-width: 45%;
     margin-right: 10px;
     margin-left: 10px;
 }
 
+#selfPromo {
+    -webkit-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
+    padding: 1em;
+    text-align: center;
+    color:white;
+    background-color: #4CAF50;
+}
+
+#selfImage {
+    border-radius: 200px;
+    height: 100px;
+}
 
 @media (max-width:720px) {
     #wrapper {
@@ -282,6 +302,19 @@ header {
 
     .login input[type=text], .login input[type=password], input[type=submit] {
         font-size: 20px;
+    }
+
+    .guideSlides {
+        margin:0;
+    }
+
+    .guideSlides img {
+        max-height: 20%;
+        max-width: 90%;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
 }
 
@@ -317,14 +350,21 @@ header {
     .login input[type=text], .login input[type=password], input[type=submit] {
         font-size: 20px;
     }
+    
+    .guideSlides {
+        margin:0;
+    }
+
+    .guideSlides img {
+        max-height: 20%;
+        max-width: 90%;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
 }
 
 footer {
-    padding: 1em;
-    text-align: center;
-    color:white;
-    -webkit-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
-    background-color: #4CAF50;
+    margin-top: 20px;
 }

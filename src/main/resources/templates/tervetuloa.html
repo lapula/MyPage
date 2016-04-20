@@ -52,15 +52,15 @@
                         <ul>
                             <li class="formTitle">
                                 <span>Käyttäjätiedot </span>
-                                
+
                             </li>
                             <li class = "login">
                                 <input type="text" name="username" th:field="*{username}" th:placeholder="${loggedUser.username}" disabled="true"/>
                             </li>
-                            
+
                             <li class = "login">
                                 <input type="password" th:field="*{password}" placeholder="Uusi salasana" />
-                                
+
                             </li>
                             <li class = "login">
                                 <input type="password" th:field="*{passwordAgain}" placeholder="Salasana uudestaan" />
@@ -91,7 +91,7 @@
             <div id="welcomeContentTitle">
                 <span>Hei</span>
             </div>
-            
+
             <div id="welcomeContentMain">
                 <div class="guideSlides">
                     <img src="/images/filler.jpg" alt="image"/>
@@ -102,12 +102,16 @@
                     <img src="/images/filler.jpg" alt="image"/>
                 </div>
             </div>
-            
-            
-            
-            <div th:replace="fragments/footer :: footer"></div>
+
+
+            <div id="selfPromo">
+                <div><img id="selfImage" src="/images/self.JPG" alt="image" /></div>
+                <div>Made by Laur Pulliainen, 
+                    <br/> Second year student at University of Helsinki Computer Science department.</div>
+                <div th:replace="fragments/footer :: footer"></div>
+            </div>
         </div>
 
-        
+
     </body>
 </html>
