@@ -42,7 +42,7 @@ body {
 }
 
 .headerNavBar li a:hover {
-    background-color: yellowgreen;
+    background-color: #6ebf70;
 }
 
 #logout {
