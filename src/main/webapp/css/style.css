@@ -296,6 +296,9 @@ header {
     }
 
     .lower-div {
+        position: absolute;
+        margin: 55em auto;
+        height: 6vh;
         width: 100%;
         color: white;
         white-space: nowrap;
