@@ -79,11 +79,16 @@
                             Kommentteja:
                         </li>
                         <li class="comment" th:each="comment : ${itemList.comments}">
-                            <span th:text="${comment}"></span>
+                            <span th:if="${loggedUser == null or loggedUser.id != itemListCreatorId}" th:text="${comment}"></span>
+                            <form class="removeCommentForm" th:if="${loggedUser != null and loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/deleteComment(id=${id})}" method="POST">
+                                <span th:text="${comment}"></span>
+                                <input type="hidden" name="comment" th:value="${comment}"/> 
+                                <input type="image" src="/images/deleteButton.png" alt="⊗" width="16" height="16"/>
+                            </form>
                         </li>
                         <li>
                             <form class="reserveForm" th:action="@{/nyyttarit/{id}/lisaaKommentti(id=${id})}" method="POST">
-                                <input type="text" name="comment" required="required" placeholder="Kommentti"/>
+                                <input type="text" name="comment" maxlength="220" required="required" placeholder="Kommentti"/>
                                 <input type="submit" value="Lisää"/>
                             </form>
                         </li>

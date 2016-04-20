@@ -84,6 +84,4 @@ public class ItemList extends AbstractBaseEntity {
         this.comments = comments;
     }
     
-    
-    
 }

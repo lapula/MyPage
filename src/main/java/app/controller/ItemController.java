@@ -99,6 +99,28 @@ public class ItemController {
         return "redirect:/nyyttarit/" + id;
     }
     
+    @RequestMapping(value = "/deleteComment", method = RequestMethod.POST)
+    public String deleteComment(@PathVariable String id, @RequestParam String comment ) {
+        
+        ItemList itemList = itemListRepository.findById(id);
+        int index = 0;
+        int mem = -1;
+        for (String c : itemList.getComments()) {
+            if (c.equals(comment)) {
+                mem = index;
+            }
+            index++;
+        }
+        
+        if (mem != -1) {
+            itemList.getComments().remove(mem);
+        }
+        
+        itemListRepository.save(itemList);
+        
+        return "redirect:/nyyttarit/" + id;
+    }
+    
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable String id, @PathVariable Long itemId ) {
         

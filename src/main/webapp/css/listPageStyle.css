@@ -331,8 +331,25 @@ input:focus, textarea:focus {
 
 .comment {
     margin-bottom: 20px;
+    overflow:visible;
+    overflow-wrap: break-word;
 }
 
+.removeCommentForm input[type=image] {
+    background-color: transparent;
+    border-radius: 200px;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    box-shadow: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline:none;
+
+
+}
 
 @media (max-width:720px) {
     body {

@@ -28,6 +28,7 @@ $(document).ready(function () {
         }
         
         
+        
         $("a").on('click', function(event) {
             
             var pathname = this.href; 
@@ -51,6 +52,8 @@ $(document).ready(function () {
             }
             
         });
+        $('.removeCommentForm input').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});
+        $('.removeCommentForm input').mouseout(function(){$(this).parent().first().css('text-decoration', 'none')});
         
 });
 
