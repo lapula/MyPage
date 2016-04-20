@@ -344,7 +344,7 @@ header {
         margin-top: 20px;
     }
 }
-
+/*
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');
@@ -404,7 +404,7 @@ header {
         margin-top: 20px;
     }
 }
-
+*/
 footer {
     margin-top: 20px;
 }
