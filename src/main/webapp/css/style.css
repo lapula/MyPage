@@ -165,7 +165,7 @@ header {
     text-shadow: 2px 2px 10px black;
 }
 
-.lower-div {
+#lower-div {
     position: absolute;
     margin: 94vh auto;
     max-height: 80%;
@@ -180,12 +180,12 @@ header {
     text-shadow: 2px 2px 10px black;
 }
 
-.lower-div:hover {
+#lower-div:hover {
     background-color: rgb(255,255,255);
     background-color: rgba(255,255,255,0.7);
 }
 
-.lower-div span {
+#lower-div span {
     line-height: 6vh;
     vertical-align: middle;
     font-size: 20px;
@@ -295,9 +295,9 @@ header {
         max-height: 25%;
     }
 
-    .lower-div {
+    #lower-div {
         position: absolute;
-        margin: 55em auto;
+        margin: 60 auto;
         height: 6vh;
         width: 100%;
         color: white;
@@ -355,9 +355,9 @@ header {
         max-height: 25%;
     }
 
-    .lower-div {
+    #lower-div {
         position: absolute;
-        margin: 55em auto;
+        margin: 60em auto;
         height: 6vh;
         width: 100%;
         color: white;

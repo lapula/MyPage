@@ -11,6 +11,11 @@ $(document).ready(function () {
                 bg.height(jQuery(window).height());
             }
             resizeBackground();
+            
+            var h = $(window).height();
+            var margin = h * 0.94 + 'px auto';
+            margin = margin.toString();
+            $("#lower-div").css('margin', margin);
         }
         
         $('input').attr('autocomplete','off');
