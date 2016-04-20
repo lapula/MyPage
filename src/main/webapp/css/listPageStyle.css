@@ -120,13 +120,22 @@ header {
 
 #nyyttariLomake input[type=submit] {
     width: 100%;
-    color: white;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: background;
+    background: linear-gradient(to left, lightgray 50%, darkslategray 50%);
+    background-size: 201% 100%;
+    background-position:right bottom;
+    transition:all 0.8s ease;
+}
+
+#nyyttariLomake input[type=submit]:hover {
+    background-position: left bottom;
+    color: white;
+
 }
 
 .nyyttariKuvaus {
@@ -154,14 +163,22 @@ header {
 
 #poistaNyyttariLomake input[type=submit] {
     width: 30%;
-    color: white;
+    color: black;
     padding: 7px 10px;
     margin: 8px auto;
     margin-bottom: 8px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: red;
+    background: linear-gradient(to left, lightpink 50%, red 50%);
+    background-size: 201% 100%;
+    background-position:right bottom;
+    transition:all 0.8s ease;
+}
+
+#poistaNyyttariLomake input[type=submit]:hover {
+    background-position: left bottom;
+    color:white;
 }
 
 #removeItem input[type=submit] {
@@ -172,8 +189,15 @@ header {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: red;
+    background: linear-gradient(to left, lightpink 50%, lightcoral 50%);
+    background-size: 201% 100%;
+    background-position:right bottom;
+    transition:all 0.8s ease;
     width: 90%;
+}
+
+#removeItem input[type=submit]:hover {
+    background-position:left bottom;
 }
 
 
@@ -232,7 +256,7 @@ header {
 
 .itemCommentTitle {
     font-size: 23px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .reserveForm input[type=text], .reserveForm input[type=number] {
@@ -263,17 +287,20 @@ header {
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    background-color: lightgray;
+    background: linear-gradient(to left, lightgray 50%, darkslategray 50%);
+    background-size: 201% 100%;
+    background-position:right bottom;
+    transition:all 0.8s ease;
 
 }
 
 .reserveForm input[type=submit]:hover {
-    background-color: darkslategray;
     color: white;
+    background-position:left bottom;
 
 }
 
-input, textarea {
+input[type=text], input[type=number], textarea {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -289,6 +316,10 @@ input:focus, textarea:focus {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.comment {
+    margin-bottom: 20px;
 }
 
 

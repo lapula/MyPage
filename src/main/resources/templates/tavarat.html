@@ -78,7 +78,7 @@
                         <li class="itemCommentTitle">
                             Kommentteja:
                         </li>
-                        <li th:each="comment : ${itemList.comments}">
+                        <li class="comment" th:each="comment : ${itemList.comments}">
                             <span th:text="${comment}"></span>
                         </li>
                         <li>
