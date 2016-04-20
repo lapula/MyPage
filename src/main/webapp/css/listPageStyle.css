@@ -121,6 +121,8 @@ header {
     border-radius: 4px;
     box-sizing: border-box;
     text-align: center;
+    resize: none;
+
 }
 
 #nyyttariLomake input[type=submit] {
