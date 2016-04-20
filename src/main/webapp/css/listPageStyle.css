@@ -31,13 +31,18 @@ body {
 
 .headerNavBar li {
     float:left;
-    padding: 14px 16px;
 }
 
 .headerNavBar li a {
     color: white;
     text-align: center;
     text-decoration: none;
+    display: block;
+    padding: 14px 16px;
+}
+
+.headerNavBar li a:hover {
+    background-color: yellowgreen;
 }
 
 #logout {

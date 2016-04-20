@@ -32,13 +32,18 @@ html, body {
 
 .headerNavBar li {
     float:left;
-    padding: 14px 16px;
 }
 
 .headerNavBar li a {
     color: white;
     text-align: center;
     text-decoration: none;
+    display: block;
+    padding: 14px 16px;
+}
+
+.headerNavBar li a:hover {
+    background-color: yellowgreen;
 }
 
 #logout {
@@ -49,19 +54,7 @@ header {
     font-size: 20px;
 }
 
-#welcomeContent {
 
-    width: 100%;
-    background-color: #4CAF50;
-    -webkit-box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px -4px 18px 0px rgba(0,0,0,0.75);
-
-}
-
-#welcomeContent p, #welcomeContent h2{
-    margin-top: 0px;
-}
 
 #welcomeLogin {
 
@@ -144,7 +137,7 @@ header {
 
 .notLoggedForm {
     padding: 1em;
-    
+
 }
 
 .notLoggedForm ul {
@@ -170,6 +163,29 @@ header {
     white-space: nowrap;
     text-align: center;
     text-shadow: 2px 2px 10px black;
+}
+
+.lower-div {
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+    height: 6vh;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.6);
+    text-shadow: 2px 2px 10px black;
+}
+
+.lower-div span {
+    line-height: 6vh;
+    vertical-align: middle;
+    font-size: 20px;
 }
 
 .loggedForm {
@@ -207,6 +223,33 @@ header {
     font-size: 8vw;
 }
 
+#welcomeContent {
+    width: 100%;
+    height: 100vh;
+}
+
+#welcomeContentTitle {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #4CAF50;
+    -webkit-box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.5);
+}
+.guideSlides {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.guideSlides img {
+    max-height: 20%;
+    max-width: 40%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
 
 @media (max-width:720px) {
@@ -277,5 +320,11 @@ header {
 }
 
 footer {
+    padding: 1em;
+    text-align: center;
+    color:white;
+    -webkit-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.5);
     background-color: #4CAF50;
 }
