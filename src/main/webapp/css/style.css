@@ -235,6 +235,7 @@ header {
 #welcomeContentTitle {
     font-size: 36px;
     text-align: center;
+    color: white;
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #4CAF50;
@@ -393,4 +394,7 @@ header {
 
 footer {
     margin-top: 20px;
+}
+footer a {
+    color: blue;
 }
