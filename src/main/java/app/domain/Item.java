@@ -6,6 +6,7 @@
 package app.domain;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author Sara ja Laur
  */
 @Entity
-public class Item implements Serializable {
+public class Item implements Serializable, Comparable<Item> {
 
     @ManyToOne
     private ItemList itemList;
@@ -93,6 +94,17 @@ public class Item implements Serializable {
 
     public void setReservedBy(List<Reservation> reservedBy) {
         this.reservedBy = reservedBy;
+    }
+
+    @Override
+    public int compareTo(Item t) {
+        if (this.getId() < t.getId()) {
+            return 1;
+        } else if (this.getId() > t.getId()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     

@@ -6,6 +6,9 @@ import app.domain.Person;
 import app.repository.ItemListRepository;
 import app.repository.ItemRepository;
 import app.repository.PersonRepository;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,8 +44,10 @@ public class MainController {
     public String getItems(Model model, @PathVariable String id) {
 
         ItemList itemList = itemListRepository.findById(id);
-
-        model.addAttribute("items", itemList.getItems());
+        List<Item> items = itemList.getItems();
+        Collections.sort(items);
+        
+        model.addAttribute("items", items);
         model.addAttribute("item", new Item());
         model.addAttribute("itemList", itemList);
         model.addAttribute("itemListCreatorId", itemList.getPerson().getId());

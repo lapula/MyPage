@@ -48,6 +48,7 @@
                         <li>
                             <div class="itemTitle"><span th:text="${item.name}"></span> <span th:text="${item.amount}"></span> kappaletta,
                                 varattu <span th:text="${item.reserved}"></span>/<span th:text="${item.amount}"></span>.</div>
+                                &#x1F374;
                             <ul>
                                 <li th:each="reserve : ${item.reservedBy}">
                                     <span>Varannut: <span th:text="${reserve.name}"></span>, <span th:text="${reserve.amount}"></span> kpl.</span>
