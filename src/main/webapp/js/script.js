@@ -28,7 +28,8 @@ $(document).ready(function () {
             $(".center-div").css('max-height', w * 0.20 + 'px');
             $(".center-div").css('margin', h * 0.40 + 'px auto');
             
-            $("input").css('padding', '1em');
+            $("input").css('padding', 0.002 * h + 'vh');
+            $("input").css('margin', '5px 0');
 
             $("#jsMsg").html('y');
         }
