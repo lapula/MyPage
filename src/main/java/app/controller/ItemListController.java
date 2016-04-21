@@ -68,7 +68,13 @@ public class ItemListController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable String id ) {
         
+        String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Person person = personRepository.findByUsername(personName);
         ItemList itemList = itemListRepository.findById(id);
+        
+        if (!person.getId().equals(itemList.getPerson().getId())) {
+            throw new IllegalAccessError();
+        }
         
         for (Item item : itemList.getItems()) {
             reservationRepository.delete(item.getReservedBy());

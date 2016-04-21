@@ -68,7 +68,6 @@ public class NewUserController {
         Person updatedUser = userRepository.findByUsername(personName);
 
         // TO IMPLEMENT USERNAME CHANGE PASSWORD MUST BE MANDATORY
-        System.out.println(username);
 
         if (username != null && !username.equals("")) {
             
@@ -76,8 +75,6 @@ public class NewUserController {
 
             if (userRepository.findByUsername(username) != null) {
                 redirectAttributes.addFlashAttribute("errorMessage", "Käyttäjänimi on jo käytössä!");
-                System.out.println("a");
-
                 return "redirect:/tervetuloa";
             }
         }
@@ -88,29 +85,15 @@ public class NewUserController {
 
             if (!updatedUser.getPassword().equals(updatedUser.getPasswordAgain())) {
                 redirectAttributes.addFlashAttribute("errorMessage", "Salasanat eivät täsmänneet!");
-                System.out.println("b");
                 return "redirect:/tervetuloa";
             } else if (updatedUser.getPassword().length() < 4) {
-                System.out.println("c");
                 redirectAttributes.addFlashAttribute("errorMessage", "Salasanan kuuluu olla vähintään 4 merkkiä pitkä!");
                 return "redirect:/tervetuloa";
             }
         }
 
-        System.out.println(updatedUser.getUsername());
-        System.out.println(updatedUser.getPassword());
-        System.out.println(updatedUser.getPasswordAgain());
-        System.out.println(updatedUser.getId());
-
-        System.out.println("3");
-
-        System.out.println("2");
-
-        System.out.println("4");
         updatedUser.setPasswordAgain("0000");
         updatedUser.setSaltedPassword();
-
-        System.out.println(updatedUser.getUsername());
 
         userRepository.save(updatedUser);
         redirectAttributes.addFlashAttribute("userUpdated", "Tiedot päivitetty!");

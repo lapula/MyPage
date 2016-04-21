@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
@@ -32,9 +33,11 @@ public class ItemList extends AbstractBaseEntity {
     private Person person;
 
     @Column(name = "name")
+    @NotBlank
     private String name;
     
     @Column(name = "description", length = 2000)
+    @NotBlank
     private String description;
     
     @OneToMany(mappedBy = "itemList")

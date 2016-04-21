@@ -7,6 +7,7 @@ package app.controller;
 
 import app.domain.Item;
 import app.domain.ItemList;
+import app.domain.Person;
 import app.domain.Reservation;
 import app.repository.ItemListRepository;
 import java.util.List;
@@ -20,9 +21,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.ItemRepository;
+import app.repository.PersonRepository;
 import app.repository.ReservationRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -34,6 +37,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping(value="/nyyttarit/{id}")
 public class ItemController {
     
+    @Autowired
+    private PersonRepository personRepository;
     
     @Autowired
     private ItemRepository itemRepository;
@@ -48,6 +53,12 @@ public class ItemController {
     @ModelAttribute
     private Item getItem() {
         return new Item();
+    }
+    
+    private Long getPersonId() {
+        String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Person person = personRepository.findByUsername(personName);
+        return person.getId();
     }
     
     @RequestMapping(value="lisaaKommentti", method = RequestMethod.POST)
@@ -65,10 +76,12 @@ public class ItemController {
     public String createNewItem(@Valid @ModelAttribute Item item, BindingResult bindingResult, @PathVariable String id) {
         
         if (bindingResult.hasFieldErrors("name") || bindingResult.hasFieldErrors("amount")) {
-            System.out.println(bindingResult.getAllErrors().get(0));
             return "tavarat";
         }
         ItemList itemList = itemListRepository.findById(id);
+        if (!itemList.getPerson().getId().equals(getPersonId())) {
+            throw new IllegalAccessError();
+        }
         item.setItemList(itemList);
         item.setReserved(0);
         item.setReservedBy(new ArrayList<>());
@@ -108,6 +121,9 @@ public class ItemController {
     public String deleteComment(@PathVariable String id, @RequestParam String comment ) {
         
         ItemList itemList = itemListRepository.findById(id);
+        if (!itemList.getPerson().getId().equals(getPersonId())) {
+            throw new IllegalAccessError();
+        }
         int index = 0;
         int mem = -1;
         for (String c : itemList.getComments()) {
@@ -135,7 +151,7 @@ public class ItemController {
         int mem = -1;
         
         for (Reservation r : item.getReservedBy()) {
-            if (r.getId() == reservationId) {
+            if (r.getId().equals(reservationId)) {
                 mem = index;
             }
             index++;
@@ -153,6 +169,11 @@ public class ItemController {
     
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
     public String deleteItemList(@PathVariable String id, @PathVariable Long itemId ) {
+        
+        ItemList itemList = itemListRepository.findById(id);
+        if (!itemList.getPerson().getId().equals(getPersonId())) {
+            throw new IllegalAccessError();
+        }
         
         Item item = itemRepository.findOne(itemId);
         reservationRepository.delete(item.getReservedBy());

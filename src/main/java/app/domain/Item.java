@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -31,9 +33,11 @@ public class Item implements Serializable {
     private Long id;
     
     @Column(name = "name")
+    @NotBlank
     private String name;
     
     @Column(name = "amount")
+    @NotNull
     private Integer amount;
     
     @Column(name = "reserved")
