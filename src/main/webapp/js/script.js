@@ -22,6 +22,8 @@ $(document).ready(function () {
             
             $(".upper-div").css('margin', h * 0.10 + 'px auto');
             $(".upper-div").css('font-size', w * 0.12 + 'px');
+            
+            $("#jsMsg").html('js works');
         }
         
         $('input').attr('autocomplete','off');
