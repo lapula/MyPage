@@ -21,7 +21,10 @@ $(document).ready(function () {
             $("#lower-div span").css('line-height', h * 0.06 + 'px');
             
             $(".upper-div").css('margin', h * 0.10 + 'px auto');
-            $(".upper-div").css('font-size', w * 0.12 + 'px');
+            $(".upper-div").css('font-size', w * 0.08 + 'px');
+            
+            $("header").css('font-size', h * 0.02 + 'px');
+            $("center-div").css('width', w * 0.4 + 'px');
             
             $("#jsMsg").html('js works');
         }

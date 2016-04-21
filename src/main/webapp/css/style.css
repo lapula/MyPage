@@ -51,7 +51,7 @@ html, body {
 }
 
 header {
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 
@@ -142,7 +142,7 @@ header {
     right: 0;
     bottom: 0;
     left: 0;
-    width: 30%;
+    width: 40vw;
     max-height: 25%;
 }
 
