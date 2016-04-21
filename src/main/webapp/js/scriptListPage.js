@@ -17,7 +17,9 @@ $(document).ready(function () {
             
             
             $(".upper-div").css('display', 'none');
+            $(".mobileTitle").css('display', 'block');
             $(".center-List").css('width', '70%');
+            $(".center-List").css('margin', '5em auto');
             
             $("header").css('font-size', h * 0.025 + 'px');
             
@@ -32,9 +34,9 @@ $(document).ready(function () {
             $(".removeCommentForm input").css('padding', '0');
             $(".removeCommentForm input").css('margin', '0');
 
-            $("#jsMsg").html('yy');
+            console.log("yy");
             
-            $('.center-List').mouseover(function(){$('input').css('transition-property', 'initial')});
+            
         }
         
         $('input').attr('autocomplete','off');
@@ -71,6 +73,8 @@ $(document).ready(function () {
         
         $('.removeCommentForm input').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});
         $('.removeCommentForm input').mouseout(function(){$(this).parent().first().css('text-decoration', 'none')});
+        $('.removeCommentForm').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});
+        $('.removeCommentForm').mouseout(function(){$(this).parent().first().css('text-decoration', 'none')});
         
 });
 
@@ -81,3 +85,7 @@ window.onload = function()
             document.getElementById('errorMsg').innerHTML = "Käyttäjänimi tai salasana väärin!";
         }
   }
+  
+  $(window).load(function () {
+      $('input').css('transition-property', 'initial');
+  });

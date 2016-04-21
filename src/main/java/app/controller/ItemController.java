@@ -24,6 +24,7 @@ import app.repository.ReservationRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -83,18 +84,22 @@ public class ItemController {
     @RequestMapping(value="/varaa/{itemId}", method = RequestMethod.POST)
     public String makeReservations(@PathVariable String id, @PathVariable Long itemId, 
             @RequestParam("reserveAmount") Integer reserveAmount,
-            @RequestParam("reserverName") String reserverName) {
+            @RequestParam("reserverName") String reserverName,
+            RedirectAttributes redirectAttributes) {
         
         Item item = itemRepository.findOne(itemId);
         Reservation reservation = new Reservation();
         reservation.setAmount(reserveAmount);
         reservation.setName(reserverName);
         reservation.setItem(item);
-        reservationRepository.save(reservation);
+        reservation = reservationRepository.save(reservation);
         
         item.getReservedBy().add(reservation);
         item.setReserved(item.getReserved()+ reserveAmount);
         item = itemRepository.save(item);
+        
+        redirectAttributes.addFlashAttribute("lastReservation", reservation.getId());
+        redirectAttributes.addFlashAttribute("lastReservationItem", item.getId());
         
         return "redirect:/nyyttarit/" + id;
     }
@@ -117,6 +122,31 @@ public class ItemController {
         }
         
         itemListRepository.save(itemList);
+        
+        return "redirect:/nyyttarit/" + id;
+    }
+    
+    @RequestMapping(value = "/deleteReservation/{itemId}/reservation/{reservationId}", method = RequestMethod.POST)
+    public String deleteItemReservation(@PathVariable String id, @PathVariable Long itemId, @PathVariable Long reservationId) {
+        
+        Reservation reservation = reservationRepository.findOne(reservationId);
+        Item item = itemRepository.findOne(itemId);
+        int index = 0;
+        int mem = -1;
+        
+        for (Reservation r : item.getReservedBy()) {
+            if (r.getId() == reservationId) {
+                mem = index;
+            }
+            index++;
+        }
+        
+        if (mem != -1) {
+            item.getReservedBy().remove(mem);
+        }
+        item.setReserved(item.getReserved() - reservation.getAmount());
+        itemRepository.save(item);
+        reservationRepository.delete(reservation);
         
         return "redirect:/nyyttarit/" + id;
     }

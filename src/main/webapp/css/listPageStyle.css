@@ -332,6 +332,10 @@ input:focus, textarea:focus {
     overflow-wrap: break-word;
 }
 
+.removeCommentForm {
+    display: inline-block;
+}
+
 .removeCommentForm input[type=image] {
     background-color: transparent;
     border-radius: 200px;
@@ -356,6 +360,57 @@ input:focus, textarea:focus {
         -o-transition: all 0.40s ease-in-out;
     }
 }
+
+
+#undoButton {
+    bottom: 30px;
+    right: 40px;
+    text-align: center;
+    color:white;
+    position: fixed;
+    border-radius: 5px;
+}
+
+#undoButton input {
+    color: black;
+    padding: 14px 10px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 0;
+    box-shadow: 0;
+    background: linear-gradient(to left, #4CAF50 50%, darkslategray 50%);
+    background-size: 201% 100%;
+    background-position:right bottom;
+    transition:all 0.4s ease;
+    transition-delay: 0.2s;
+    -webkit-box-shadow: 0px 0px 42px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 42px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 42px 0px rgba(0,0,0,0.75);
+    font-size: 20px;
+}
+
+#undoButton input:hover {
+    background-position:left bottom;
+    color: white;
+}
+
+
+#undoButton input:focus {
+    box-shadow: 0;
+    padding: 14px 10px;
+    margin: 0;
+    border: none;
+}
+
+#undoArrow:hover {
+    -webkit-transform: rotateZ(-360deg);
+    -moz-transform: rotateZ(-360deg);
+    -ms-transform: rotateZ(-360deg);
+    -o-transform: rotateZ(-360deg);
+    transform: rotateZ(-360deg);
+}
+
 /*
 @media (max-width:1020px) {
     body {

@@ -16,8 +16,6 @@
             <span th:text="${itemList.name}"></span>
         </div>
 
-
-
         <div id="wrapper">
             <div class="center-List">
                 <div class="mobileTitle">
@@ -37,7 +35,7 @@
                     <ul th:if="${loggedUser.id == itemListCreatorId}">
                         <form id="nyyttariLomake"  action="#" th:action="@{/nyyttarit/{id}/lisaa(id=${id})}" th:object="${item}" method="POST">
                             <li><input type="text" required="required" placeholder="Nimi, esim: Kokista 1,5l" th:field="*{name}" /></li>
-                            <li><input type="number" required="required" placeholder="Määrä" th:field="*{amount}" /></li>
+                            <li><input type="number" required="required" min="1" placeholder="Määrä" th:field="*{amount}" /></li>
                             <li><input type="submit" value="Lisää tavara!" /></li>
                         </form>
                         <hr style="margin-top: 24px"></hr>
@@ -49,11 +47,13 @@
                     <ul>
                         <li>
                             <div class="itemTitle"><span th:text="${item.name}"></span> <span th:text="${item.amount}"></span> kappaletta,
-
                                 varattu <span th:text="${item.reserved}"></span>/<span th:text="${item.amount}"></span>.</div>
                             <ul>
                                 <li th:each="reserve : ${item.reservedBy}">
-                                    Varannut: <span th:text="${reserve.name}"></span>, <span th:text="${reserve.amount}"></span> kpl.
+                                    <span>Varannut: <span th:text="${reserve.name}"></span>, <span th:text="${reserve.amount}"></span> kpl.</span>
+                                    <form class="removeCommentForm" th:if="${loggedUser != null and loggedUser.id == itemListCreatorId}" action="#" th:action="@{/nyyttarit/{id}/deleteReservation/{itemId}/reservation/{reservationId}(id=${id}, itemId=${item.id}, reservationId=${reserve.id})}" method="POST"> 
+                                        <input type="image" src="/images/deleteButton.png" alt="⊗" width="16" height="16"/>
+                                    </form>
                                 </li>
                             </ul>
 
@@ -95,6 +95,12 @@
                     </ul>
                 </div>
             </div>
+
+            <form id="undoButton" th:if="${lastReservation != null}" th:action="@{/nyyttarit/{id}/deleteReservation/{itemId}/reservation/{reservationId}(id=${id}, itemId=${lastReservationItem}, reservationId=${lastReservation})}" method="POST">
+                <input id="undoText" type="submit" value="Peru varaus"></input>
+            </form>
+
+
         </div>
         <div th:replace="fragments/footer :: footer"></div>
     </body>
