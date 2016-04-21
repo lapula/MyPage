@@ -30,6 +30,7 @@ $(document).ready(function () {
             
             $("input").css('padding', 0.002 * h + 'vh');
             $("input").css('margin', '5px 0');
+            $("input").css('font-size', 0.002 * h + 'vh');
 
             $("#jsMsg").html('y');
         }
