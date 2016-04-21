@@ -24,7 +24,7 @@ $(document).ready(function () {
             $(".upper-div").css('font-size', w * 0.08 + 'px');
             
             $("header").css('font-size', h * 0.025 + 'px');
-            $(".headerNavBar li a").css('padding', '10px 11px;');
+            $(".headerNavBar li a").css('padding', '8px 10px');
             $(".center-div").css('width', w * 0.6 + 'px');
             $(".center-div").css('max-height', w * 0.20 + 'px');
             $(".center-div").css('margin', h * 0.40 + 'px auto');

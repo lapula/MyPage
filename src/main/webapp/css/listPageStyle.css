@@ -4,7 +4,8 @@ html, body {
 }
 
 body {
-    background: url('/images/backgroundCompressed.jpg') gray;
+    background-image: url('/images/background.jpg');
+    background: url('/images/background.jpg') gray repeat-y center center;
 }
 
 
