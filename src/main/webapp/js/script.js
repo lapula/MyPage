@@ -28,9 +28,9 @@ $(document).ready(function () {
             $(".center-div").css('max-height', w * 0.20 + 'px');
             $(".center-div").css('margin', h * 0.40 + 'px auto');
             
-            $("input").css('padding', '7px 10px');
+            $("input").css('padding', '1em');
 
-            $("#jsMsg").html('js works');
+            $("#jsMsg").html('y');
         }
         
         $('input').attr('autocomplete','off');
