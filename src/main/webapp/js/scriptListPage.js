@@ -21,13 +21,11 @@ $(document).ready(function () {
             
             $("header").css('font-size', h * 0.025 + 'px');
             
-            $("input").css('padding', 0.02 * h + 'px');
             $("input").css('margin', '5px 0');
-            $("input").css('font-size', 0.015 * h + 'px');
+            $("input").css('font-size', 0.02 * h + 'px');
             
-            $("textarea").css('padding', 0.02 * h + 'px');
             $("textarea").css('margin', '5px 0');
-            $("textarea").css('font-size', 0.015 * h + 'px');
+            $("textarea").css('font-size', 0.02 * h + 'px');
             
             $(".removeCommentForm input").css('padding', '0');
             $(".removeCommentForm input").css('0');
