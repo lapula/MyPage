@@ -136,7 +136,7 @@ header {
     background: linear-gradient(to left, lightgray 50%, darkslategray 50%);
     background-size: 201% 100%;
     background-position:right bottom;
-    transition:all 0.8s ease;
+    transition:all 0.4s ease;
     transition-delay: 0.2s;
 }
 
@@ -181,7 +181,7 @@ header {
     background: linear-gradient(to left, lightpink 50%, red 50%);
     background-size: 201% 100%;
     background-position:right bottom;
-    transition:all 0.8s ease;
+    transition:all 0.4s ease;
     transition-delay: 0.2s;
 }
 
@@ -201,7 +201,7 @@ header {
     background: linear-gradient(to left, lightpink 50%, red 50%);
     background-size: 201% 100%;
     background-position:right bottom;
-    transition:all 0.8s ease;
+    transition:all 0.4s ease;
     width: 90%;
     transition-delay: 0.2s;
 }
@@ -312,10 +312,10 @@ header {
 }
 
 input[type=text], input[type=number], textarea {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.40s ease-in-out;
+    -moz-transition: all 0.40s ease-in-out;
+    -ms-transition: all 0.40s ease-in-out;
+    -o-transition: all 0.40s ease-in-out;
     outline: none;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
@@ -351,7 +351,7 @@ input:focus, textarea:focus {
 
 }
 
-@media (max-width:720px) {
+@media (max-width:1020px) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
         background-repeat: repeat-y;
@@ -415,7 +415,7 @@ input:focus, textarea:focus {
         transition-delay: 0.2s;
     }
 }
-
+/*
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
@@ -481,7 +481,7 @@ input:focus, textarea:focus {
     }
 
 }
-
+*/
 footer {
     position: absolute;
     bottom: 0;

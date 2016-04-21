@@ -13,7 +13,7 @@ $(document).ready(function () {
             resizeBackground();
             
             var h = $(window).height();
-            var h = $(window).width();
+            var w = $(window).width();
             var margin = h * 0.94 + 'px auto';
             margin = margin.toString();
             $("#lower-div").css('margin', margin);
