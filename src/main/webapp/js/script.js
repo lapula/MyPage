@@ -24,6 +24,7 @@ $(document).ready(function () {
             $(".upper-div").css('font-size', w * 0.08 + 'px');
             
             $("header").css('font-size', h * 0.025 + 'px');
+            $(".headerNavBar li a").css('padding', '10px 11px;');
             $(".center-div").css('width', w * 0.6 + 'px');
             $(".center-div").css('max-height', w * 0.20 + 'px');
             $(".center-div").css('margin', h * 0.40 + 'px auto');
@@ -31,8 +32,16 @@ $(document).ready(function () {
             $("input").css('padding', 0.02 * h + 'px');
             $("input").css('margin', '5px 0');
             $("input").css('font-size', 0.02 * h + 'px');
+            
+            $(".guideSlides").css('margin', '0');
+            
+            $(".guideSlides img").css('max-height', '20%')
+                                 .css('max-width', '90%')
+                                 .css('margin-right', '10px')
+                                 .css('margin-left', '10px')
+                                 .css('margin-bottom', '20px')
+                                 .css('margin-top', '20px');
 
-            $("#jsMsg").html('y');
         }
         
         $('input').attr('autocomplete','off');

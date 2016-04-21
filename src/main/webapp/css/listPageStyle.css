@@ -350,7 +350,7 @@ input:focus, textarea:focus {
 
 
 }
-
+/*
 @media (max-width:1020px) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
@@ -415,7 +415,7 @@ input:focus, textarea:focus {
         transition-delay: 0.2s;
     }
 }
-/*
+
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     body {
         background: url('/images/backgroundCompressedMobile.jpg') gray;
