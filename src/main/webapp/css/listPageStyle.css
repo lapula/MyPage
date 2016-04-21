@@ -397,11 +397,11 @@ input:focus, textarea:focus {
     }
 
     .login input[type=text], .login input[type=password] {
-        font-size: 2vw;
+        font-size: 2vh;
     }
 
     input[type=text], input[type=number], textarea, input[type=submit] {
-        font-size: 3vw;
+        font-size: 2vh;
     }
 
     #nyyttariLomake {
