@@ -163,14 +163,9 @@ header {
 
 .upper-div {
     position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    margin: 10vh auto;
     width: 100%;
-    max-height: 80%;
-    font-size: 12vh;
+    font-size: 8vw;
     color: white;
     white-space: nowrap;
     text-align: center;
@@ -284,7 +279,7 @@ header {
     border-radius: 200px;
     height: 100px;
 }
-
+/*
 @media handheld, screen and (max-width:720px) {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');
@@ -344,7 +339,7 @@ header {
         margin-top: 20px;
     }
 }
-/*
+
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     #wrapper {
         background-image: url('/images/backgroundMobile.jpg');

@@ -13,11 +13,15 @@ $(document).ready(function () {
             resizeBackground();
             
             var h = $(window).height();
+            var h = $(window).width();
             var margin = h * 0.94 + 'px auto';
             margin = margin.toString();
             $("#lower-div").css('margin', margin);
             $("#lower-div").css('height', h * 0.06 + 'px');
             $("#lower-div span").css('line-height', h * 0.06 + 'px');
+            
+            $(".upper-div").css('margin', h * 0.10 + 'px auto');
+            $(".upper-div").css('font-size', w * 0.12 + 'px');
         }
         
         $('input').attr('autocomplete','off');
