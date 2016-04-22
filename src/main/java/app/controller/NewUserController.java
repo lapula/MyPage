@@ -5,8 +5,12 @@
  */
 package app.controller;
 
+import app.domain.Item;
 import app.domain.ItemList;
 import app.domain.Person;
+import app.domain.Reservation;
+import app.repository.ItemListRepository;
+import app.repository.ItemRepository;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import app.repository.PersonRepository;
+import app.repository.ReservationRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,6 +38,15 @@ public class NewUserController {
 
     @Autowired
     private PersonRepository userRepository;
+    
+    @Autowired
+    private ItemListRepository itemListRepository;
+    
+    @Autowired
+    private ItemRepository itemRepository;
+    
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     @RequestMapping(method = RequestMethod.POST)
     public String createNewUser(Model model, @Valid @ModelAttribute Person user, BindingResult bindingResult,
@@ -50,11 +64,52 @@ public class NewUserController {
             model.addAttribute("errorMessage", "Salasanan kuuluu olla vähintään 4 merkkiä pitkä!");
             return "uusiKayttaja";
         }
-
+        
         user.setPasswordAgain("0000");
         user.setItems(new ArrayList<>());
         user.setSaltedPassword();
+        
+        // Add example ItemList
+        ItemList itemList = new ItemList();
+        itemList.setComments(new ArrayList<>());
+        itemList.getComments().add("Tähän sinä tai käyttäjä voi jättää kommentteja, esimerkiksi jos haluaa tuoda jotain muuta tai ilmoittaa tulevansa myöhässä.");
+        itemList.setName("Esimerkkitapahtuma");
+        itemList.setPerson(user);
+        itemList.setDescription("TBD");
+        itemList.setItems(new ArrayList<>());
+        user.getItems().add(itemList);
+        
+        // Add example items
+        Item item = new Item();
+        item.setName("Karkkipusseja");
+        item.setAmount(3);
+        item.setReservedBy(new ArrayList<>());
+        item.setItemList(itemList);
+        item.setReserved(0);
+        
+        Item item2 = new Item();
+        item2.setName("Jaffapullo 1,5 litraa");
+        item2.setAmount(1);
+        item2.setReservedBy(new ArrayList<>());
+        item2.setItemList(itemList);
+        item2.setReserved(0);
+        
+        itemList.getItems().add(item);
+        itemList.getItems().add(item2);
+        
+        // Add reservations
+        Reservation reservation = new Reservation();
+        reservation.setName("Pekka & Seppo");
+        reservation.setAmount(2);
+        reservation.setItem(item);
+        item.getReservedBy().add(reservation);
+        
         userRepository.save(user);
+        itemListRepository.save(itemList);
+        itemRepository.save(item);
+        itemRepository.save(item2);
+        reservationRepository.save(reservation);
+        
         redirectAttributes.addFlashAttribute("newUserCreated", "Kirjaudu sisään!");
         return "redirect:/tervetuloa";
     }

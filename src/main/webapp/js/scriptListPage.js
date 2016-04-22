@@ -71,6 +71,44 @@ $(document).ready(function () {
             }
         });
         
+        $("#clipboardCopy").on('click', function(event) {
+
+            // Create a "hidden" input
+            var aux = document.createElement("input");
+
+            // Assign it the value of the specified element
+            var copyText = window.location.href.toString();
+            aux.setAttribute("value", copyText);
+
+            // Append it to the body
+            document.body.appendChild(aux);
+
+            // Highlight its content
+            aux.select();
+
+            // Copy the highlighted text
+            document.execCommand("copy");
+
+            // Remove it from the body
+            document.body.removeChild(aux);
+            
+            $(this).html("Kopioitu &#128279;");
+            $(this).css('background-position', 'left bottom');
+            $(this).css('color', 'white');
+            
+            setTimeout(
+                function() {
+                    $("#clipboardCopy").css('display', 'none');
+                    $("#clipboardCopy").css('background-position', 'right bottom');
+                    $("#clipboardCopy").css('color', 'black');
+                    $("#clipboardCopy").html("Kopioi linkki.");
+            }, 2000);
+            
+        });
+        
+        
+
+        
         $('.removeCommentForm input').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});
         $('.removeCommentForm input').mouseout(function(){$(this).parent().first().css('text-decoration', 'none')});
         $('.removeCommentForm').mouseover(function(){$(this).parent().first().css('text-decoration', 'line-through')});

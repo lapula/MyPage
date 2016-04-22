@@ -241,6 +241,16 @@ header {
     box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.5);
 }
 
+#infoDescription {
+    margin: 10px auto;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    width: 80%;
+    overflow: visible;
+    overflow-wrap: break-word;
+}
+
 .guideSlides {
     text-align: center;
     margin-bottom: 20px;
