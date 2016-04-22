@@ -103,6 +103,7 @@ public class NewUserController {
         reservation.setAmount(2);
         reservation.setItem(item);
         item.getReservedBy().add(reservation);
+        item.setReserved(2);
         
         userRepository.save(user);
         itemListRepository.save(itemList);
