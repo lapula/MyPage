@@ -51,9 +51,10 @@
                 <div class="loggedForm">
                     <form action="#" th:action="@{/uusiKayttaja/update}" th:object="${person}" method="POST">
                         <ul>
+                            <!-- 
                             <li class = "login">
                                 <input type="text" name="username" th:field="*{username}" th:placeholder="${loggedUser.username}" disabled="true"/>
-                            </li>
+                            </li> -->
 
                             <li class = "login">
                                 <input type="password" th:field="*{password}" placeholder="Uusi salasana" />
