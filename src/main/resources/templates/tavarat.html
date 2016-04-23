@@ -26,8 +26,14 @@
                 <div id="descriptionText">
                     <span th:utext="${#strings.replace( #strings.escapeXml( itemList.description ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" ></span>
                 </div>
-
+                
                 <hr style="margin-top: 24px"></hr>
+
+                <div id="clipboardCopy">
+                    Linkki &#128279;
+                </div>
+
+                <hr style="margin-top: 12px"></hr>
 
                 <div th:if="${loggedUser != null}">
 
@@ -98,11 +104,6 @@
             </div>
 
             <ul id="bottomMenu">
-                <li>
-                    <div id="clipboardCopy">
-                        Linkki &#128279;
-                    </div>
-                </li>
                 <li>
                     <form id="undoButton" th:if="${lastReservation != null}" th:action="@{/nyyttarit/{id}/deleteReservation/{itemId}/reservation/{reservationId}(id=${id}, itemId=${lastReservationItem}, reservationId=${lastReservation})}" method="POST">
                         <input id="undoText" type="submit" value="Peru varaus"></input>
