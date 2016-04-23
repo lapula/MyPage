@@ -57,19 +57,18 @@
                                     </form>
                                 </li>
                             </ul>
-
                         </li>
-                        <div th:if="${loggedUser != null}">
-                            <li id="removeItem" th:if="${loggedUser.id == itemListCreatorId}">
-                                <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
-                            </li>
-                        </div>
                         <div th:if="${item.amount != item.reserved}">
-                            <form th:if="${loggedUser == null or loggedUser.id != itemListCreatorId}" class="reserveForm" th:action="@{/nyyttarit/{id}/varaa/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST">
+                            <form class="reserveForm" th:action="@{/nyyttarit/{id}/varaa/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST">
                                 <input type="text" name="reserverName" required="required" placeholder="Varaaja"/>
                                 <input type="number" min="1" th:max="${item.amount - item.reserved}" name="reserveAmount" placeholder="Määrä"/>
                                 <input type="submit" value="Varaa"/>
                             </form>
+                        </div>
+                        <div th:if="${loggedUser != null}">
+                            <li id="removeItem" th:if="${loggedUser.id == itemListCreatorId}">
+                                <form th:action="@{/nyyttarit/{id}/delete/{tavara_id}(id=${id}, tavara_id=${item.id})}" method="POST"><input type="submit" value="poista"/></form>
+                            </li>
                         </div>
                     </ul>
                     <hr style="margin-top: 24px"></hr>

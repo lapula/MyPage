@@ -98,10 +98,9 @@ $(document).ready(function () {
             
             setTimeout(
                 function() {
-                    $("#clipboardCopy").css('display', 'none');
                     $("#clipboardCopy").css('background-position', 'right bottom');
                     $("#clipboardCopy").css('color', 'black');
-                    $("#clipboardCopy").html("Kopioi linkki.");
+                    $("#clipboardCopy").html("Linkki &#128279;");
             }, 2000);
             
         });
