@@ -2,13 +2,13 @@
 
     <ul class="headerNavBar">
         <li>
-            <a th:if="${loggedUser == null}" href="/tervetuloa">Etusivulle</a>
+            <a th:if="${loggedUser == null}" href="/tervetuloa">Etusivu</a>
         </li>
         <li th:if="${loggedUser == null}">
             <a href="/uusiKayttaja">Uusi käyttäjä</a>
         </li>
         <li th:if="${loggedUser != null}">
-            <a href="/tapahtumat">Omat tapahtumat</a>
+            <a href="/tapahtumat">Tapahtumat</a>
         </li>
         <li>
             <a th:if="${loggedUser != null}" href="/tervetuloa">Käyttäjätiedot</a>

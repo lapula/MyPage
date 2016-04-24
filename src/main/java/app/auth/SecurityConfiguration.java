@@ -26,14 +26,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/tervetuloa", "/stats", "/uusiKayttaja", "/css*/**", "/images*/**", "/js*/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/nyyttarit/*").permitAll()
-                .antMatchers(HttpMethod.POST, "/nyyttarit/*/varaa/*", "/nyyttarit/*/lisaaKommentti", "/nyyttarit/*/deleteReservation/*/reservation/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/tapahtumat/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/tapahtumat/*/varaa/*", "/tapahtumat/*/lisaaKommentti", "/tapahtumat/*/deleteReservation/*/reservation/*").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
                 .loginPage("/tervetuloa")
                 .loginProcessingUrl("/authenticate")
-                .defaultSuccessUrl("/nyyttarit")
+                .defaultSuccessUrl("/tapahtumat")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .permitAll();

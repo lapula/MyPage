@@ -43,10 +43,10 @@
                     </form>
                 </ul>
 
-                <hr></hr>
+
 
                 <div th:each="itemList : ${itemLists}">
-
+                    <hr></hr>
                     <ul class="nyyttariKuvaus" >
 
                         <li id="nyyttariTitle">
@@ -61,12 +61,12 @@
                             <form id="poistaNyyttariLomake" th:action="@{/tapahtumat/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="Poista"/></form>
                         </li>
                     </ul>
-                    <hr></hr>
+
                 </div>
-                
+                <div th:replace="fragments/footer :: footer"></div>
             </div>
         </div>
 
-        <div th:replace="fragments/footer :: footer"></div>
+
     </body>
 </html>

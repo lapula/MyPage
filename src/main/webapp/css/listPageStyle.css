@@ -250,6 +250,7 @@ header {
 
 .extraItem ul {
     list-style: none;
+    margin-bottom: 0px;
 }
 
 .extraItem ul li ul {
@@ -304,7 +305,7 @@ header {
     width: 30%;
     color: black;
     padding: 7px 10px;
-    margin: 8px auto;
+    margin: 12px auto;
     margin-bottom: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -582,15 +583,8 @@ input:focus, textarea:focus {
 }
 */
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 1em;
+    margin-top: 48px;
+    font-size: 12px;
     text-align: center;
-    color:white;
-    position: fixed;
-}
-
-footer a {
-    color: white;
+    color:darkslategray;
 }

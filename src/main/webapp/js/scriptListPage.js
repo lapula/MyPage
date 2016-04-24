@@ -19,7 +19,7 @@ $(document).ready(function () {
             $(".upper-div").css('display', 'none');
             $(".mobileTitle").css('display', 'block');
             $(".center-List").css('width', '70%');
-            $(".center-List").css('margin', '5em auto');
+            $(".center-List").css('margin', '8em auto');
             
             $("header").css('font-size', h * 0.025 + 'px');
             

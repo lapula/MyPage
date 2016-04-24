@@ -33,6 +33,8 @@ $(document).ready(function () {
             $("input").css('margin', '5px 0');
             $("input").css('font-size', 0.02 * h + 'px');
             
+            $(".deleteUser input").css('padding', 0.007 * h + 'px');
+            
             $(".guideSlides").css('margin', '0');
             
             $(".guideSlides img").css('max-height', '20%')
