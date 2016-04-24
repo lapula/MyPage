@@ -40,7 +40,7 @@ public class ItemList extends AbstractBaseEntity {
     @NotBlank
     private String description;
     
-    @OneToMany(mappedBy = "itemList")
+    @OneToMany(mappedBy = "itemList", orphanRemoval = true)
     private List<Item> items;
     
     @Column(name = "comments")

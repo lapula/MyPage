@@ -45,7 +45,7 @@ public class Item implements Serializable, Comparable<Item> {
     private Integer reserved;
     
     @Column(name = "reservedBy")
-    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Reservation> reservedBy;
 
     public Long getId() {

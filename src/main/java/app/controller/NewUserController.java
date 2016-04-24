@@ -158,8 +158,9 @@ public class NewUserController {
 
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
     public String deleteUser(@PathVariable Long id) {
-
-        userRepository.delete(id);
+        
+        Person user = userRepository.findOne(id);
+        userRepository.delete(user);
 
         return "redirect:/logout";
     }

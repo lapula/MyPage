@@ -5,7 +5,7 @@ html, body {
 
 body {
     background-image: url('/images/background.jpg');
-    background: url('/images/background.jpg') gray repeat-y center center;
+    background: url('/images/background.jpg') gray repeat-y top center;
 }
 
 
@@ -51,7 +51,7 @@ body {
 }
 
 header {
-    font-size: 1.5em;
+    font-size: 2.5vh;
 }
 
 .upper-div {
@@ -263,11 +263,21 @@ header {
 }
 
 .itemTitle {
+    font-size: 26px;
+    text-align: center;
+    margin: 0 auto;
+    width:90%;
+}
+
+.itemReserve {
     font-size: 23px;
+    text-align: center;
+    margin: 0 auto;
+    width:90%;
 }
 
 .itemCommentTitle {
-    font-size: 23px;
+    font-size: 26px;
     margin-bottom: 20px;
 }
 

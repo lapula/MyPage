@@ -92,6 +92,9 @@ public class MainController {
 
     @RequestMapping(value = "*")
     public String redirectWelcome() {
+        if (getLoggedUser() != null) {
+            return "redirect:/nyyttarit";
+        }
         return "redirect:/tervetuloa";
     }
 }

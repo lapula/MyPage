@@ -46,7 +46,7 @@ public class Person implements Serializable {
     private String salt;
     
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", orphanRemoval = true)
     private List<ItemList> items;
 
     public String getPasswordAgain() {
