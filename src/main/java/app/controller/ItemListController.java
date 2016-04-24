@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Sara ja Laur
  */
 @Controller
-@RequestMapping(value="/nyyttarit")
+@RequestMapping(value="/tapahtumat")
 public class ItemListController {
     
     @Autowired
@@ -49,7 +49,7 @@ public class ItemListController {
     public String createNewUser(@Valid @ModelAttribute ItemList itemList, BindingResult bindingResult) {
         
         if (bindingResult.hasErrors()) {
-            return "nyyttarit";
+            return "tapahtumat";
         }
         
         String personName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -62,7 +62,7 @@ public class ItemListController {
         person.getItems().add(itemList);
         personRepository.save(person);
         
-        return "redirect:/nyyttarit";
+        return "redirect:/tapahtumat";
     }
     
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
@@ -83,7 +83,7 @@ public class ItemListController {
         
         itemListRepository.delete(itemList);
         
-        return "redirect:/nyyttarit";
+        return "redirect:/tapahtumat";
     }
     
 }

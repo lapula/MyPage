@@ -31,7 +31,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Sara ja Laur
  */
 @Controller
-@RequestMapping(value="/nyyttarit/{id}")
+@RequestMapping(value="/tapahtumat/{id}")
 public class ItemController {
     
     @Autowired
@@ -65,7 +65,7 @@ public class ItemController {
         itemList.getComments().add(comment);
         itemListRepository.save(itemList);
         
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
     
@@ -88,7 +88,7 @@ public class ItemController {
         itemList.getItems().add(item);
         itemListRepository.save(itemList);
 
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
     @RequestMapping(value="/varaa/{itemId}", method = RequestMethod.POST)
@@ -111,7 +111,7 @@ public class ItemController {
         redirectAttributes.addFlashAttribute("lastReservation", reservation.getId());
         redirectAttributes.addFlashAttribute("lastReservationItem", item.getId());
         
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
     @RequestMapping(value = "/deleteComment", method = RequestMethod.POST)
@@ -136,7 +136,7 @@ public class ItemController {
         
         itemListRepository.save(itemList);
         
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
     @RequestMapping(value = "/deleteReservation/{itemId}/reservation/{reservationId}", method = RequestMethod.POST)
@@ -161,7 +161,7 @@ public class ItemController {
         itemRepository.save(item);
         reservationRepository.delete(reservation);
         
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
     @RequestMapping(value = "/delete/{itemId}", method = RequestMethod.POST)
@@ -176,7 +176,7 @@ public class ItemController {
         reservationRepository.delete(item.getReservedBy());
         itemRepository.delete(item);
         
-        return "redirect:/nyyttarit/" + id;
+        return "redirect:/tapahtumat/" + id;
     }
     
 }

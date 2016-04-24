@@ -3,6 +3,7 @@
     <head lang="en">
         <meta charset="UTF-8" />
         <title>Nyyttarit</title>
+        <meta name="theme-color" content="#4CAF50" />
         <script src="../../js/jquery-1.12.3.min.js" th:src="@{/js/jquery-1.12.3.min.js}"></script>
         <script src="../../js/script.js" th:src="@{/js/scriptListPage.js}"></script>
         <link rel="stylesheet" type="text/css" media="all"  href="../../css/listPageStyle.css" th:href="@{css/listPageStyle.css}" />
@@ -15,7 +16,7 @@
         <div id="wrapper">
 
             <div class="upper-div">
-                <span>Omat nyyttärit</span>
+                <span>Omat tapahtumat</span>
             </div>
 
             <div class="center-List">
@@ -23,10 +24,10 @@
 
                 <ul>
                     <li class="formTitle">
-                        <span>Luo uusi nyyttäri</span>
+                        <span>Luo uusi tapahtuma</span>
                     </li>
 
-                    <form id="nyyttariLomake" action="#" th:action="@{/nyyttarit}" th:object="${itemList}" method="POST">
+                    <form id="nyyttariLomake" action="#" th:action="@{/tapahtumat}" th:object="${itemList}" method="POST">
                         <li>
                             <hr></hr>
                         </li>
@@ -49,7 +50,7 @@
                     <ul class="nyyttariKuvaus" >
 
                         <li id="nyyttariTitle">
-                            <a th:href="@{/nyyttarit/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
+                            <a th:href="@{/tapahtumat/{id}(id=${itemList.id})}"><span th:text="${itemList.name}"></span></a>
                         </li>
 
                         <li id="descriptionText">
@@ -57,7 +58,7 @@
                         </li>
 
                         <li>
-                            <form id="poistaNyyttariLomake" th:action="@{/nyyttarit/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="Poista"/></form>
+                            <form id="poistaNyyttariLomake" th:action="@{/tapahtumat/delete/{id}(id=${itemList.id})}" method="POST"><input type="submit" value="Poista"/></form>
                         </li>
                     </ul>
                     <hr></hr>

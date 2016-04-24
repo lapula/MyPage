@@ -40,7 +40,7 @@ public class MainController {
         return loggedUser;
     }
 
-    @RequestMapping(value = "/nyyttarit/{id}")
+    @RequestMapping(value = "/tapahtumat/{id}")
     public String getItems(Model model, @PathVariable String id) {
 
         ItemList itemList = itemListRepository.findById(id);
@@ -56,14 +56,14 @@ public class MainController {
         return "tavarat";
     }
 
-    @RequestMapping(value = "/nyyttarit")
+    @RequestMapping(value = "/tapahtumat")
     public String getItemLists(Model model) {
 
         Person person = getLoggedUser();
         model.addAttribute("itemList", new ItemList());
         model.addAttribute("itemLists", person.getItems());
 
-        return "nyyttarit";
+        return "tapahtumat";
     }
 
     @RequestMapping(value = "/uusiKayttaja")
@@ -93,7 +93,7 @@ public class MainController {
     @RequestMapping(value = "*")
     public String redirectWelcome() {
         if (getLoggedUser() != null) {
-            return "redirect:/nyyttarit";
+            return "redirect:/tapahtumat";
         }
         return "redirect:/tervetuloa";
     }
